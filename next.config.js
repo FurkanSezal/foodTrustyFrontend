@@ -2,15 +2,15 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  webpack5: true,
+  /* webpack5: true, */
   images: {
     unoptimized: true,
   },
-  webpack: (config) => {
+  /* webpack: (config) => {
     config.resolve.fallback = { fs: false };
 
     return config;
-  },
+  }, */
   env: {
     UPTADE_FRONT_END: process.env.UPTADE_FRONT_END,
     PINATA_API_KEY: process.env.PINATA_API_Key,
