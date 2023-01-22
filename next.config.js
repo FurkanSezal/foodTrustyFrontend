@@ -2,6 +2,9 @@
 
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    unoptimized: true,
+  },
 
   env: {
     UPTADE_FRONT_END: process.env.UPTADE_FRONT_END,
