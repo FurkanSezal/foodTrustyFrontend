@@ -1,0 +1,89 @@
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+import Header from "../components/Header";
+import TableListMor from "../components/tablelistMor";
+import { useMoralis, useWeb3Contract } from "react-moralis";
+import networkMapping from "../constants/networkMapping.json";
+import trustyContactAbi from "../constants/foodTrusty.json";
+import React, { useEffect, useState } from "react";
+import Search from "../components/end-user-home-search";
+
+export default function Home() {
+  const { chainId, account, isWeb3Enabled, web3 } = useMoralis();
+  const chainString = chainId ? parseInt(chainId).toString() : "31337";
+  const foodTrustyContractAddress = networkMapping[chainString].foodTrusty[0];
+  const [flag, setflag] = useState(false);
+
+  const { runContractFunction: getManufacturer } = useWeb3Contract({
+    abi: trustyContactAbi,
+    contractAddress: foodTrustyContractAddress,
+    functionName: "getManufacturer",
+    params: { _manufacturer: account },
+  });
+
+  const { runContractFunction: getRestaurant } = useWeb3Contract({
+    abi: trustyContactAbi,
+    contractAddress: foodTrustyContractAddress,
+    functionName: "getRestaurant",
+    params: { _restaurant: account },
+  });
+
+  const { runContractFunction: getGrower } = useWeb3Contract({
+    abi: trustyContactAbi,
+    contractAddress: foodTrustyContractAddress,
+    functionName: "getGrower",
+    params: { _grower: account },
+  });
+
+  const { runContractFunction: getSlaughter } = useWeb3Contract({
+    abi: trustyContactAbi,
+    contractAddress: foodTrustyContractAddress,
+    functionName: "getSlaughter",
+    params: { _slaughter: account },
+  });
+  const { runContractFunction: getWholesaler } = useWeb3Contract({
+    abi: trustyContactAbi,
+    contractAddress: foodTrustyContractAddress,
+    functionName: "getWholesaler",
+    params: { _wholesaler: account },
+  });
+  const { runContractFunction: getAdmin } = useWeb3Contract({
+    abi: trustyContactAbi,
+    contractAddress: foodTrustyContractAddress,
+    functionName: "getAdmin",
+    params: { _admin: account },
+  });
+
+  async function showHomePage() {
+    if (
+      (await getManufacturer()) ||
+      (await getRestaurant()) ||
+      (await getGrower()) ||
+      (await getSlaughter()) ||
+      (await getWholesaler()) ||
+      (await getAdmin())
+    ) {
+      setflag(true);
+    } else {
+      setflag(false);
+    }
+  }
+  useEffect(() => {
+    if (account) {
+      showHomePage();
+    }
+  }, [account, isWeb3Enabled]);
+
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>foodTrusty</title>
+        <meta name="description" content="foodTrusty" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Header />
+      <div>{flag ? <TableListMor /> : <Search />}</div>
+    </div>
+  );
+}
