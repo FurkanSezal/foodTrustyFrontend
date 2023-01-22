@@ -29,8 +29,7 @@ function TableListMor() {
     let updatedDataArray = [];
     if (!Moralis.Core.isStarted) {
       await Moralis.start({
-        apiKey:
-          "gjpgdp3pts6OzCzvftkKE55SSs4uo7wMhwUNEHCE7okvb8HwkFQz2pJMu1ncsAx0",
+        apiKey: process.env.MORALIS_API_KEY,
       });
     }
     const address = foodTrustyContractAddress;
@@ -58,7 +57,7 @@ function TableListMor() {
         buffer.push(bufferObj);
       }
     });
-    //console.log(`Tabledata : ${JSON.stringify(buffer)}`);
+    // console.log(`Tabledata : ${JSON.stringify(buffer)}`);
     const newDataArray = await Promise.all(
       buffer.map(async (item) => {
         // console.log(parseInt(item.productId));
@@ -72,11 +71,11 @@ function TableListMor() {
           },
         });
 
-        // console.log(`hash: ${hash}`);
+        console.log(`hash: ${hash}`);
         const requestURL = "https:/ipfs.io/ipfs/" + hash;
 
         const tokenURIResponse = await (await fetch(requestURL)).json();
-        //console.log(requestURL);
+        // console.log(requestURL);
         setColumn(tokenURIResponse[0].inputName);
         return [
           "",
@@ -143,7 +142,6 @@ function TableListMor() {
         noPagination
         header={["", <span>ProductId</span>, <span>{column}</span>, ""]}
         maxPages={3}
-        isLoading
         onPageNumberChanged={function noRefCheck() {}}
         onRowClick={function noRefCheck(tx) {
           /*  console.log(tx);

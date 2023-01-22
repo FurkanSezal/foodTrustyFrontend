@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
 import React, { useEffect, useState } from "react";
@@ -9,7 +8,6 @@ import trustyContactAbi from "../constants/foodTrusty.json";
 import InputFormDistributor from "../components/InputFormDistributor";
 import InputFormGlower from "../components/InputFormGlower";
 import InputFormRestaurant from "../components/InputFormRestaurant";
-import InputForm from "../components/InputForm";
 import InputFormManufacturer from "../components/InputFormManufacturer";
 import InputFormSlaughter from "../components/InputFormSlaughter";
 import InputFormExample from "../components/example";
@@ -99,7 +97,7 @@ export default function Home() {
       {formId === 0 ? (
         "You are not registered! "
       ) : formId === 1 ? (
-        <InputFormManufacturer />
+        <InputFormExample />
       ) : formId === 2 ? (
         <InputFormRestaurant />
       ) : formId === 3 ? (

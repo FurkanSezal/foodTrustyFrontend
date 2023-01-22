@@ -3,7 +3,6 @@ import networkMapping from "../constants/networkMapping.json";
 import { useMoralis, useWeb3Contract } from "react-moralis";
 import trustyContactAbi from "../constants/foodTrusty.json";
 import axios from "axios";
-import { storeProjectData } from "../../scripts/uploadToIpfs";
 
 function InputFormSlaughter() {
   const { runContractFunction } = useWeb3Contract();
@@ -14,48 +13,59 @@ function InputFormSlaughter() {
 
   const handleSubmit = async (event) => {
     let file;
-    event.data.find((curr) => {
-      if (curr.inputName == "Image") {
-        file = curr.inputResult;
-      }
-    });
+    if (file) {
+      event.data.find((curr) => {
+        if (curr.inputName == "Image") {
+          file = curr.inputResult;
+        }
+      });
 
-    const JWT = process.env.PINATA_JWT;
+      const JWT = process.env.PINATA_JWT;
 
-    /*  console.log(event.data);
+      /*  console.log(event.data);
     console.log(`Event data: ${JSON.stringify(event.data)}`); */
-    const formData = new FormData();
+      const formData = new FormData();
 
-    formData.append("file", file);
+      formData.append("file", file);
 
-    const metadata = JSON.stringify({
-      name: file.name,
-    });
-    formData.append("pinataMetadata", metadata);
+      const metadata = JSON.stringify({
+        name: file.name,
+      });
+      formData.append("pinataMetadata", metadata);
 
-    const options = JSON.stringify({
-      cidVersion: 0,
-    });
-    formData.append("pinataOptions", options);
+      const options = JSON.stringify({
+        cidVersion: 0,
+      });
+      formData.append("pinataOptions", options);
 
-    const res = await axios.post(
-      "https://api.pinata.cloud/pinning/pinFileToIPFS",
-      formData,
+      const res = await axios.post(
+        "https://api.pinata.cloud/pinning/pinFileToIPFS",
+        formData,
+        {
+          maxBodyLength: "Infinity",
+          headers: {
+            "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+            Authorization: JWT,
+          },
+        }
+      );
+      //  console.log(res.data.IpfsHash);
+      const image = event.data.find((curr) => {
+        return curr.inputName == "Image";
+      });
+      image.inputResult = res.data.IpfsHash;
+    }
+    // console.log(`Event data: ${JSON.stringify(event.data)}`);
+    const ProjectMetadataUploadResponse = await axios.post(
+      "https://api.pinata.cloud/pinning/pinJSONToIPFS",
+      event.data,
       {
-        maxBodyLength: "Infinity",
         headers: {
-          "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+          "Content-Type": "application/json",
           Authorization: JWT,
         },
       }
     );
-    //  console.log(res.data.IpfsHash);
-    const image = event.data.find((curr) => {
-      return curr.inputName == "Image";
-    });
-    image.inputResult = res.data.IpfsHash;
-    // console.log(`Event data: ${JSON.stringify(event.data)}`);
-    const ProjectMetadataUploadResponse = await storeProjectData(event.data);
     // console.log(`ipfs://${ProjectMetadataUploadResponse.IpfsHash}`);
 
     const addProductOptions = {
@@ -63,7 +73,7 @@ function InputFormSlaughter() {
       contractAddress: foodTrustyContractAddress,
       functionName: "addProduct",
       params: {
-        _ipfsHash: ProjectMetadataUploadResponse.IpfsHash,
+        _ipfsHash: ProjectMetadataUploadResponse.data.IpfsHash,
       },
     };
 
