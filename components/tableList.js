@@ -2,10 +2,7 @@ import { Table } from "@web3uikit/core";
 import React, { useEffect, useState } from "react";
 import trustyContactAbi from "../constants/foodTrusty.json";
 import networkMapping from "../constants/networkMapping.json";
-import { useMoralis, useWeb3Contract } from "react-moralis";
-import Moralis from "moralis";
-import { EvmChain } from "@moralisweb3/evm-utils";
-import { productAddEventAbi } from "../constants/eventAbi";
+import { useMoralis } from "react-moralis";
 import { ethers } from "ethers";
 
 function TableList() {

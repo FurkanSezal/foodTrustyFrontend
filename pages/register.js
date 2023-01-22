@@ -97,7 +97,7 @@ export default function Home() {
       {formId === 0 ? (
         "You are not registered! "
       ) : formId === 1 ? (
-        <InputFormExample />
+        <InputFormManufacturer />
       ) : formId === 2 ? (
         <InputFormRestaurant />
       ) : formId === 3 ? (
