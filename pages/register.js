@@ -10,7 +10,6 @@ import InputFormGlower from "../components/InputFormGlower";
 import InputFormRestaurant from "../components/InputFormRestaurant";
 import InputFormManufacturer from "../components/InputFormManufacturer";
 import InputFormSlaughter from "../components/InputFormSlaughter";
-import InputFormExample from "../components/example";
 
 export default function Home() {
   const [formId, setFormId] = useState("");
