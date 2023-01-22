@@ -7,11 +7,14 @@
 
 # testing
 /coverage
-components
+
 
 # next.js
 /.next/
 /out
+del.js
+example.js
+InputForm.js
 
 
 # production
@@ -32,4 +35,3 @@ yarn-error.log*
 .env
 # vercel
 .vercel
-del.js
