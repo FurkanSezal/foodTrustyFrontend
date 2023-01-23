@@ -89,7 +89,7 @@ export default function Home() {
       const requestURL = "https://gateway.ipfs.io/ipfs/" + hash;
 
       const tokenURIResponse = await (await fetch(requestURL)).json();
-      console.log(`tokenURIResponse:${JSON.stringify(tokenURIResponse)}`);
+      // console.log(`tokenURIResponse:${JSON.stringify(tokenURIResponse)}`);
       //  console.log(`tokenURIResponse:${typeof tokenURIResponse}`);
 
       setmMetadataobj(tokenURIResponse);
@@ -98,7 +98,7 @@ export default function Home() {
       });
       const imageURL =
         "https://gateway.ipfs.io/ipfs/" + findImageUrl.inputResult;
-      console.log(imageURL);
+      // console.log(imageURL);
       setImageURI(imageURL);
 
       return tokenURIResponse;
