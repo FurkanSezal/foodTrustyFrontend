@@ -61,8 +61,7 @@ export default function Search() {
                 if (tx.data[0].inputResult <= productLastId) {
                   setCheck(false);
                   router.push({
-                    pathname: "/productPage",
-                    query: { productId: tx.data[0].inputResult },
+                    pathname: `/${tx.data[0].inputResult}`,
                   });
                 } else {
                   setCheck(true);
