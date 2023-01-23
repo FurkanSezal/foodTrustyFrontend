@@ -8,6 +8,7 @@ import networkMapping from "../constants/networkMapping.json";
 import trustyContactAbi from "../constants/foodTrusty.json";
 import React, { useEffect, useState } from "react";
 import Search from "../components/end-user-home-search";
+import { BannerStrip } from "@web3uikit/core";
 
 export default function Home() {
   const { chainId, account, isWeb3Enabled, web3 } = useMoralis();
@@ -71,7 +72,6 @@ export default function Home() {
   }
   useEffect(() => {
     if (account) {
-      //console.log(window.location.href);
       showHomePage();
     }
   }, [account, isWeb3Enabled]);
@@ -84,7 +84,34 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div>{flag ? <TableListMor /> : <Search />}</div>
+
+      <div>
+        {isWeb3Enabled ? (
+          <div>
+            {chainString === "80001" ? (
+              <div>
+                <div>{flag ? <TableListMor /> : <Search />}</div>
+              </div>
+            ) : (
+              <div>
+                <BannerStrip
+                  onCloseBtnClick={function noRefCheck() {}}
+                  text="Please switch to Mumbai Testnet"
+                  type="error"
+                />
+              </div>
+            )}
+          </div>
+        ) : (
+          <div>
+            <BannerStrip
+              onCloseBtnClick={function noRefCheck() {}}
+              text="Please Connect a Wallet!"
+              type="error"
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
