@@ -1,5 +1,5 @@
 import { Table, Loading, Button } from "@web3uikit/core";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, query } from "react";
 import trustyContactAbi from "../constants/foodTrusty.json";
 import networkMapping from "../constants/networkMapping.json";
 import { useMoralis, useWeb3Contract } from "react-moralis";
@@ -89,7 +89,7 @@ function TableListMor() {
                 // console.log(await QRCode.toDataURL(requestURL));
                 setQr(
                   await QRCode.toDataURL(
-                    "https://foodtrusty.on.fleek.co/" + item.productId
+                    "https://food-trusty-frontend.vercel.app/" + item.productId
                   )
                 );
                 setShowModal(true);
@@ -106,7 +106,7 @@ function TableListMor() {
               try {
                 const a = document.createElement("a");
                 a.href = await QRCode.toDataURL(
-                  "https://foodtrusty.on.fleek.co/" + item.productId
+                  "https://food-trusty-frontend.vercel.app/" + item.productId
                 );
                 a.download = "Image.png";
                 a.click();
