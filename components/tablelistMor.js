@@ -106,7 +106,10 @@ function TableListMor() {
             onClick={async function generateQRcode() {
               try {
                 const a = document.createElement("a");
-                a.href = await QRCode.toDataURL(requestURL);
+                a.href = await QRCode.toDataURL(
+                  "https://foodtrusty.on.fleek.co/productPage?productId=" +
+                    item.productId
+                );
                 a.download = "Image.png";
                 a.click();
               } catch (err) {
