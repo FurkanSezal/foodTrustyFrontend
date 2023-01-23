@@ -7,7 +7,6 @@ import { useMoralis, useWeb3Contract } from "react-moralis";
 import networkMapping from "../constants/networkMapping.json";
 import trustyContactAbi from "../constants/foodTrusty.json";
 import { Information } from "@web3uikit/core";
-
 import { useRouter } from "next/router";
 
 export default function Home() {
