@@ -98,7 +98,7 @@ export default function Home() {
       });
       const imageURL =
         "https://gateway.ipfs.io/ipfs/" + findImageUrl.inputResult;
-      //console.log(imageURL);
+      console.log(imageURL);
       setImageURI(imageURL);
 
       return tokenURIResponse;
