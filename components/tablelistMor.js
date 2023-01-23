@@ -87,7 +87,11 @@ function TableListMor() {
             onClick={async function generateQRcode() {
               try {
                 // console.log(await QRCode.toDataURL(requestURL));
-                setQr(await QRCode.toDataURL(requestURL));
+                setQr(
+                  await QRCode.toDataURL(
+                    "https://productPage?productId=" + item.productId
+                  )
+                );
                 setShowModal(true);
               } catch (err) {
                 console.error(err);
