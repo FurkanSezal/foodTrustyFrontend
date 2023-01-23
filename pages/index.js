@@ -71,6 +71,7 @@ export default function Home() {
   }
   useEffect(() => {
     if (account) {
+      console.log(window.location.href);
       showHomePage();
     }
   }, [account, isWeb3Enabled]);
