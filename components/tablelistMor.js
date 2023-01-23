@@ -88,9 +88,7 @@ function TableListMor() {
               try {
                 // console.log(await QRCode.toDataURL(requestURL));
                 setQr(
-                  await QRCode.toDataURL(
-                    "https://foodtrusty.vercel.app/" + item.productId
-                  )
+                  await QRCode.toDataURL(window.location.href + item.productId)
                 );
                 setShowModal(true);
               } catch (err) {
@@ -106,7 +104,7 @@ function TableListMor() {
               try {
                 const a = document.createElement("a");
                 a.href = await QRCode.toDataURL(
-                  "https://foodtrusty.vercel.app/" + item.productId
+                  window.location.href + item.productId
                 );
                 a.download = "Image.png";
                 a.click();
