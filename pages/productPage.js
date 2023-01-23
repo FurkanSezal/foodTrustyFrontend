@@ -86,7 +86,7 @@ export default function Home() {
         },
       });
       // console.log(hash);
-      const requestURL = "https:/ipfs.io/ipfs/" + hash;
+      const requestURL = "https://gateway.ipfs.io/ipfs/" + hash;
 
       const tokenURIResponse = await (await fetch(requestURL)).json();
       /* console.log(`tokenURIResponse:${JSON.stringify(tokenURIResponse)}`);
@@ -96,7 +96,8 @@ export default function Home() {
       const findImageUrl = tokenURIResponse.find((curr) => {
         return curr.inputName == "Image";
       });
-      const imageURL = "https:/ipfs.io/ipfs/" + findImageUrl.inputResult;
+      const imageURL =
+        "https://gateway.ipfs.io/ipfs/" + findImageUrl.inputResult;
       //console.log(imageURL);
       setImageURI(imageURL);
 
