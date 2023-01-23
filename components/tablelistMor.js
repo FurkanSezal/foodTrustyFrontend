@@ -156,7 +156,7 @@ function TableListMor() {
           console.log(`ProductId:${dataArray[tx][1]}`); */
 
           router.push({
-            query: dataArray[tx][1],
+            pathname: `/${dataArray[tx][1]}`,
           });
         }}
         pageSize={100}
