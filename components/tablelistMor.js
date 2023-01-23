@@ -72,7 +72,7 @@ function TableListMor() {
         });
 
         //console.log(`hash:${hash}`);
-        const requestURL = "https:/ipfs.io/ipfs/" + hash;
+        const requestURL = "../" + "https:/ipfs.io/ipfs/" + hash;
 
         const tokenURIResponse = await (await fetch(requestURL)).json();
         console.log(requestURL);
