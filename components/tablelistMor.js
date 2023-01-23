@@ -71,7 +71,7 @@ function TableListMor() {
           },
         });
 
-        //console.log(`hash:${hash}`);
+        console.log(`hash:${hash}`);
         const requestURL = "https://gateway.ipfs.io/ipfs/" + hash;
 
         const tokenURIResponse = await (await fetch(requestURL)).json();

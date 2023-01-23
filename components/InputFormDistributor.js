@@ -13,15 +13,14 @@ function InputFormDistributor() {
 
   const handleSubmit = async (event) => {
     let file;
+    event.data.find((curr) => {
+      if (curr.inputName == "Image") {
+        file = curr.inputResult;
+      }
+    });
+
+    const JWT = process.env.PINATA_JWT;
     if (file) {
-      event.data.find((curr) => {
-        if (curr.inputName == "Image") {
-          file = curr.inputResult;
-        }
-      });
-
-      const JWT = process.env.PINATA_JWT;
-
       /*  console.log(event.data);
     console.log(`Event data: ${JSON.stringify(event.data)}`); */
       const formData = new FormData();

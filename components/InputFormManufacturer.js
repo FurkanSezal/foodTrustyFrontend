@@ -13,15 +13,13 @@ function InputFormManufacturer() {
 
   const handleSubmit = async (event) => {
     let file;
+    const JWT = process.env.PINATA_JWT;
+    event.data.find((curr) => {
+      if (curr.inputName == "Image") {
+        file = curr.inputResult;
+      }
+    });
     if (file) {
-      event.data.find((curr) => {
-        if (curr.inputName == "Image") {
-          file = curr.inputResult;
-        }
-      });
-
-      const JWT = process.env.PINATA_JWT;
-
       /*  console.log(event.data);
     console.log(`Event data: ${JSON.stringify(event.data)}`); */
       const formData = new FormData();
@@ -37,7 +35,7 @@ function InputFormManufacturer() {
         cidVersion: 0,
       });
       formData.append("pinataOptions", options);
-      console.log(formData);
+      // console.log(formData);
 
       const res = await axios.post(
         "https://api.pinata.cloud/pinning/pinFileToIPFS",
@@ -54,6 +52,7 @@ function InputFormManufacturer() {
       const image = event.data.find((curr) => {
         return curr.inputName == "Image";
       });
+      // console.log(`res= ${JSON.stringify(res)}`);
       image.inputResult = res.data.IpfsHash;
     }
     // console.log(`Event data: ${JSON.stringify(event.data)}`);
@@ -68,14 +67,14 @@ function InputFormManufacturer() {
       }
     );
     // console.log(ProjectMetadataUploadResponse);
-    console.log(`ipfs://${ProjectMetadataUploadResponse.data.IpfsHash}`);
+    // console.log(`ipfs://${ProjectMetadataUploadResponse.data.IpfsHash}`);
 
     const addProductOptions = {
       abi: trustyContactAbi,
       contractAddress: foodTrustyContractAddress,
       functionName: "addProduct",
       params: {
-        _ipfsHash: ProjectMetadataUploadResponse.IpfsHash,
+        _ipfsHash: ProjectMetadataUploadResponse.data.IpfsHash,
       },
     };
 
