@@ -89,8 +89,7 @@ function TableListMor() {
                 // console.log(await QRCode.toDataURL(requestURL));
                 setQr(
                   await QRCode.toDataURL(
-                    "https://foodtrusty.on.fleek.co/productPage?productId=" +
-                      item.productId
+                    "https://foodtrusty.on.fleek.co/" + item.productId
                   )
                 );
                 setShowModal(true);
@@ -107,8 +106,7 @@ function TableListMor() {
               try {
                 const a = document.createElement("a");
                 a.href = await QRCode.toDataURL(
-                  "https://foodtrusty.on.fleek.co/productPage?productId=" +
-                    item.productId
+                  "https://foodtrusty.on.fleek.co/" + item.productId
                 );
                 a.download = "Image.png";
                 a.click();
