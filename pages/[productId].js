@@ -13,7 +13,7 @@ export default function Home() {
   const { isWeb3Enabled, account, chainId } = useMoralis();
   const chainString = chainId ? parseInt(chainId).toString() : "31337";
   const foodTrustyContractAddress = networkMapping[chainString].foodTrusty[0];
-  const { productId } = useRouter().query;
+  const productId = useRouter().query.productId;
   const [imageURI, setImageURI] = useState("");
   const [metadataobj, setmMetadataobj] = useState([]);
   const [flag, setflag] = useState(false);
