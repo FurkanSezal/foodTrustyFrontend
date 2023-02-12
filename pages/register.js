@@ -10,12 +10,18 @@ import InputFormGlower from "../components/InputFormGlower";
 import InputFormRestaurant from "../components/InputFormRestaurant";
 import InputFormManufacturer from "../components/InputFormManufacturer";
 import InputFormSlaughter from "../components/InputFormSlaughter";
+import { BannerStrip } from "@web3uikit/core";
 
 export default function Home() {
   const [formId, setFormId] = useState("");
   const { isWeb3Enabled, account, chainId } = useMoralis();
+  let foodTrustyContractAddress;
   const chainString = chainId ? parseInt(chainId).toString() : "31337";
-  const foodTrustyContractAddress = networkMapping[chainString].foodTrusty[0];
+  if (networkMapping[chainString] != undefined) {
+    foodTrustyContractAddress = networkMapping[chainString].foodTrusty[0];
+  } else {
+    foodTrustyContractAddress = networkMapping["31337"].foodTrusty[0];
+  }
 
   const { runContractFunction: getManufacturer } = useWeb3Contract({
     abi: trustyContactAbi,
@@ -93,21 +99,49 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      {formId === 0 ? (
-        "You are not registered! "
-      ) : formId === 1 ? (
-        <InputFormManufacturer />
-      ) : formId === 2 ? (
-        <InputFormRestaurant />
-      ) : formId === 3 ? (
-        <InputFormGlower />
-      ) : formId === 4 ? (
-        <InputFormSlaughter />
-      ) : formId === 5 ? (
-        <InputFormDistributor />
-      ) : (
-        ""
-      )}
+      <div>
+        {isWeb3Enabled ? (
+          chainString === "80001" || networkMapping[chainString] ? (
+            formId === 0 ? (
+              <div>
+                <BannerStrip
+                  onCloseBtnClick={function noRefCheck() {}}
+                  text="You are not registered!"
+                  type="error"
+                />
+              </div>
+            ) : formId === 1 ? (
+              <InputFormManufacturer />
+            ) : formId === 2 ? (
+              <InputFormRestaurant />
+            ) : formId === 3 ? (
+              <InputFormGlower />
+            ) : formId === 4 ? (
+              <InputFormSlaughter />
+            ) : formId === 5 ? (
+              <InputFormDistributor />
+            ) : (
+              ""
+            )
+          ) : (
+            <div>
+              <BannerStrip
+                onCloseBtnClick={function noRefCheck() {}}
+                text="Please switch to Polygon Network"
+                type="error"
+              />
+            </div>
+          )
+        ) : (
+          <div>
+            <BannerStrip
+              onCloseBtnClick={function noRefCheck() {}}
+              text="Please connect a Wallet"
+              type="error"
+            />
+          </div>
+        )}
+      </div>
 
       <div className="px-10"></div>
     </div>

@@ -12,8 +12,15 @@ import { BannerStrip } from "@web3uikit/core";
 
 export default function Home() {
   const { chainId, account, isWeb3Enabled, web3 } = useMoralis();
+  let foodTrustyContractAddress;
   const chainString = chainId ? parseInt(chainId).toString() : "31337";
-  const foodTrustyContractAddress = networkMapping[chainString].foodTrusty[0];
+
+  if (networkMapping[chainString] != undefined) {
+    foodTrustyContractAddress = networkMapping[chainString].foodTrusty[0];
+  } else {
+    foodTrustyContractAddress = networkMapping["31337"].foodTrusty[0];
+  }
+
   const [flag, setflag] = useState(false);
 
   const { runContractFunction: getManufacturer } = useWeb3Contract({
@@ -70,6 +77,7 @@ export default function Home() {
       setflag(false);
     }
   }
+
   useEffect(() => {
     if (account) {
       showHomePage();
@@ -88,7 +96,7 @@ export default function Home() {
       <div>
         {isWeb3Enabled ? (
           <div>
-            {chainString === "80001" ? (
+            {chainString === "80001" || networkMapping[chainString] ? (
               <div>
                 <div>{flag ? <TableListMor /> : <Search />}</div>
               </div>
@@ -96,7 +104,7 @@ export default function Home() {
               <div>
                 <BannerStrip
                   onCloseBtnClick={function noRefCheck() {}}
-                  text="Please switch to Mumbai Testnet"
+                  text="Please switch to Polygon Network"
                   type="error"
                 />
               </div>

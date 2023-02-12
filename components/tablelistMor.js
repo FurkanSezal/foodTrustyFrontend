@@ -1,5 +1,5 @@
 import { Table, Loading, Button } from "@web3uikit/core";
-import React, { useEffect, useState, query } from "react";
+import React, { useEffect, useState } from "react";
 import trustyContactAbi from "../constants/foodTrusty.json";
 import networkMapping from "../constants/networkMapping.json";
 import { useMoralis, useWeb3Contract } from "react-moralis";
@@ -13,7 +13,11 @@ import UpdateModal from "./QrModal";
 function TableListMor() {
   const { chainId, account, isWeb3Enabled, web3 } = useMoralis();
   const chainString = chainId ? parseInt(chainId).toString() : "31337";
-  const foodTrustyContractAddress = networkMapping[chainString].foodTrusty[0];
+  const foodTrustyContractAddressChecker =
+    networkMapping[chainString].foodTrusty[0];
+  const foodTrustyContractAddress = foodTrustyContractAddressChecker
+    ? foodTrustyContractAddressChecker
+    : networkMapping["31337"].foodTrusty[0];
   const router = useRouter();
   const [dataArray, setDataArray] = useState([]);
   const [column, setColumn] = useState();
