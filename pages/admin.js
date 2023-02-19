@@ -408,7 +408,7 @@ export default function Home() {
           params: { _admin: account },
         },
       })) ||
-      (await getOwner())
+      (await getOwner()).toLowerCase() === account.toLowerCase()
     ) {
       setflag(true);
     } else {
