@@ -495,7 +495,12 @@ export default function Home() {
                       </div>
                     </div>
                   ) : (
-                    <div></div>
+                    <div>
+                      <BannerStrip
+                        text="You are not authorized to see this page"
+                        type="error"
+                      />
+                    </div>
                   )}
                 </div>
               </div>

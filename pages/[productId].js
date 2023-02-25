@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { useMoralis, useWeb3Contract } from "react-moralis";
 import networkMapping from "../constants/networkMapping.json";
 import trustyContactAbi from "../constants/foodTrusty.json";
-import { Information } from "@web3uikit/core";
+import { Information, BannerStrip } from "@web3uikit/core";
 import { useRouter } from "next/router";
 
 export default function Home() {
@@ -15,6 +15,7 @@ export default function Home() {
   const foodTrustyContractAddress = networkMapping[chainString].foodTrusty[0];
   const productId = useRouter().query.productId;
   const [imageURI, setImageURI] = useState("");
+  const [lastProductId, setLastProductId] = useState("");
   const [metadataobj, setmMetadataobj] = useState([]);
   const [flag, setflag] = useState(false);
 
@@ -60,7 +61,15 @@ export default function Home() {
     params: { _admin: account },
   });
 
+  const { runContractFunction: getLastProductId } = useWeb3Contract({
+    abi: trustyContactAbi,
+    contractAddress: foodTrustyContractAddress,
+    functionName: "getLastProductId",
+    params: {},
+  });
+
   async function selectShowData() {
+    setLastProductId(await getLastProductId());
     if (
       (await getManufacturer()) ||
       (await getRestaurant()) ||
@@ -113,7 +122,13 @@ export default function Home() {
       selectShowData();
       showData();
     } else {
-      <div>Please Connect a Wallet</div>;
+      <div>
+        <BannerStrip
+          onCloseBtnClick={function noRefCheck() {}}
+          text="Please Connect a Wallet"
+          type="error"
+        />
+      </div>;
     }
   }, [account]);
 
@@ -177,25 +192,52 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div className="px-2 border-b-2 flex flex-row">
-        <Information information={productId} topic="Product Id" />
-      </div>
-      <div className="px-2">
-        <div>
-          <div className="  border-spacing-10  w-full bg-white border border-red-500 rounded-md overflow-hidden">
-            <Image
-              loader={() => imageURI}
-              src={imageURI}
-              alt=""
-              width={500}
-              height={500}
+      <div>
+        {isWeb3Enabled ? (
+          <div>
+            <div>
+              {lastProductId > productId ? (
+                <div>
+                  <div className="px-2 border-b-2 flex flex-row">
+                    <Information information={productId} topic="Product Id" />
+                  </div>
+                  <div className="px-2">
+                    <div>
+                      <div className="  border-spacing-10  w-full bg-white border border-red-500 rounded-md overflow-hidden">
+                        <Image
+                          loader={() => imageURI}
+                          src={imageURI}
+                          alt=""
+                          width={500}
+                          height={500}
+                        />
+                      </div>
+
+                      <div>{flag ? showAllData() : showEndUserData()}</div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <BannerStrip
+                    onCloseBtnClick={function noRefCheck() {}}
+                    text="Please enter a valid product Id"
+                    type="error"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        ) : (
+          <div>
+            <BannerStrip
+              onCloseBtnClick={function noRefCheck() {}}
+              text="Please Connect a Wallet"
+              type="error"
             />
           </div>
-
-          <div>{flag ? showAllData() : showEndUserData()}</div>
-        </div>
+        )}
       </div>
-
       <div className="px-10"></div>
     </div>
   );
