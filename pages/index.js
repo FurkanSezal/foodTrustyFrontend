@@ -9,6 +9,7 @@ import trustyContactAbi from "../constants/foodTrusty.json";
 import React, { useEffect, useState } from "react";
 import Search from "../components/end-user-home-search";
 import { BannerStrip } from "@web3uikit/core";
+import { languageDoc } from "../constants/languageDoc";
 
 export default function Home() {
   const { chainId, account, isWeb3Enabled, web3 } = useMoralis();
@@ -22,6 +23,7 @@ export default function Home() {
   }
 
   const [flag, setflag] = useState(false);
+  const [language, setLanguage] = useState("FR");
 
   const { runContractFunction: getManufacturer } = useWeb3Contract({
     abi: trustyContactAbi,
@@ -77,12 +79,16 @@ export default function Home() {
       setflag(false);
     }
   }
+  async function handleLanguage(language) {
+    // console.log(language);
+    setLanguage(language);
+  }
 
   useEffect(() => {
     if (account) {
       showHomePage();
     }
-  }, [account, isWeb3Enabled]);
+  }, [account, isWeb3Enabled, language]);
 
   return (
     <div className={styles.container}>
@@ -91,20 +97,26 @@ export default function Home() {
         <meta name="description" content="foodTrusty" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      <Header setLanguage={handleLanguage} />
 
       <div>
         {isWeb3Enabled ? (
           <div>
             {chainString === "80001" || networkMapping[chainString] ? (
               <div>
-                <div>{flag ? <TableListMor /> : <Search />}</div>
+                <div>
+                  {flag ? (
+                    <TableListMor language={language} />
+                  ) : (
+                    <Search language={language} />
+                  )}
+                </div>
               </div>
             ) : (
               <div>
                 <BannerStrip
                   onCloseBtnClick={function noRefCheck() {}}
-                  text="Please switch to Polygon Network"
+                  text={languageDoc[language]["PleaseswitchtoPolygonNetwork"]}
                   type="error"
                 />
               </div>
@@ -114,7 +126,7 @@ export default function Home() {
           <div>
             <BannerStrip
               onCloseBtnClick={function noRefCheck() {}}
-              text="Please Connect a Wallet!"
+              text={languageDoc[language]["PleaseConnectWallet"]}
               type="error"
             />
           </div>

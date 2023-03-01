@@ -1,7 +1,13 @@
 import { Modal } from "@web3uikit/core";
 import Image from "next/image";
+import { languageDoc } from "../constants/languageDoc";
 
-export default function UpdateModal({ isVisible, onClose, imageURI }) {
+export default function UpdateModal({
+  isVisible,
+  onClose,
+  imageURI,
+  language,
+}) {
   return (
     <Modal
       isVisible={isVisible}
@@ -17,7 +23,8 @@ export default function UpdateModal({ isVisible, onClose, imageURI }) {
           console.error(err);
         }
       }}
-      okText="Download QR Code"
+      okText={languageDoc[language]["DownloadQRCode"]}
+      cancelText={languageDoc[language]["Cancel"]}
     >
       <Image
         loader={() => imageURI}

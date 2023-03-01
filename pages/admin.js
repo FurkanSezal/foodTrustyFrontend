@@ -227,8 +227,8 @@ export default function Home() {
         await tx.wait(1);
         dispatch({
           type: "Success",
-          message: "Wholesaler Adding..",
-          title: "Wholesaler Added",
+          message: "Admin Adding..",
+          title: "Admin Added",
           position: "topR",
         });
       }

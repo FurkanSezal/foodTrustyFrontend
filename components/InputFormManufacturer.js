@@ -45,9 +45,6 @@ function InputFormManufacturer() {
       inputWidth: "100%",
       name: "id of manufacturer",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
@@ -72,189 +69,126 @@ function InputFormManufacturer() {
       inputWidth: "100%",
       name: "Address of manufacturer",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Type of manufacturer",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Zip code of manufacturer",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "End date",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Date of purchase of raw material",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Date of sale",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Nutritional value",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Ingredients",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Storage temperature of meal",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Ingredient 1",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Purchase date of ingredient 1",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Supplier of ingredient 1",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Place of storage of ingredient 1",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Storage temperature of ingredient 1",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Purchase date of ingredient 2",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Supplier of ingredient 2",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Place of storage of ingredient 2",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Storage temperature of ingredient 2",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Last date of housekeeping of place and freezer",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "Last date of housekeeping of freezer",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
       name: "How many time employees wash their hands day of cooking",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
 
@@ -262,9 +196,6 @@ function InputFormManufacturer() {
       inputWidth: "100%",
       name: "Carbon footprint",
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
 

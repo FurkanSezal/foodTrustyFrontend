@@ -11,6 +11,7 @@ import InputFormRestaurant from "../components/InputFormRestaurant";
 import InputFormManufacturer from "../components/InputFormManufacturer";
 import InputFormSlaughter from "../components/InputFormSlaughter";
 import { BannerStrip } from "@web3uikit/core";
+import InputFormExample from "../components/example";
 
 export default function Home() {
   const [formId, setFormId] = useState("");
@@ -111,7 +112,7 @@ export default function Home() {
                 />
               </div>
             ) : formId === 1 ? (
-              <InputFormManufacturer />
+              <InputFormExample />
             ) : formId === 2 ? (
               <InputFormRestaurant />
             ) : formId === 3 ? (

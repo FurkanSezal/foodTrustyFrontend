@@ -9,8 +9,9 @@ import { EvmChain } from "@moralisweb3/common-evm-utils";
 import { useRouter } from "next/router";
 import QRCode from "qrcode";
 import UpdateModal from "./QrModal";
+import { languageDoc } from "../constants/languageDoc";
 
-function TableListMor() {
+function TableListMor({ language }) {
   const { chainId, account, isWeb3Enabled, web3 } = useMoralis();
   const chainString = chainId ? parseInt(chainId).toString() : "31337";
   const foodTrustyContractAddressChecker =
@@ -87,7 +88,7 @@ function TableListMor() {
           tokenURIResponse[0].inputResult,
           <Button
             color="red"
-            text="Show QR Code"
+            text={languageDoc[language]["ShowQrCode"]}
             onClick={async function generateQRcode() {
               try {
                 // console.log(await QRCode.toDataURL(requestURL));
@@ -103,7 +104,7 @@ function TableListMor() {
           />,
           <Button
             color="red"
-            text="Download QR Code"
+            text={languageDoc[language]["DownloadQRCode"]}
             onClick={async function generateQRcode() {
               try {
                 const a = document.createElement("a");
@@ -133,11 +134,17 @@ function TableListMor() {
     if (isWeb3Enabled || account) {
       getEvents();
     }
-  }, [account]);
+  }, [account, language]);
 
   return (
     <div>
-      <UpdateModal isVisible={showModal} onClose={hideModel} imageURI={qr} />;
+      <UpdateModal
+        isVisible={showModal}
+        onClose={hideModel}
+        imageURI={qr}
+        language={language}
+      />
+      ;
       <Table
         columnsConfig="60px 1fr 2fr 2fr 160px"
         alignCellItems="center"
@@ -148,9 +155,13 @@ function TableListMor() {
           </div>
         }
         noPagination
-        header={["", <span>ProductId</span>, <span>{column}</span>, ""]}
+        header={[
+          "",
+          <span>{languageDoc[language]["ProductId"]}</span>,
+          <span>{column}</span>,
+          "",
+        ]}
         maxPages={3}
-        onPageNumberChanged={function noRefCheck() {}}
         onRowClick={function noRefCheck(tx) {
           /*  console.log(tx);
           console.log(`ProductId:${dataArray[tx][1]}`); */

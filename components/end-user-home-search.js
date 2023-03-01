@@ -4,8 +4,9 @@ import { useMoralis, useWeb3Contract } from "react-moralis";
 import React, { useEffect, useState } from "react";
 import trustyContactAbi from "../constants/foodTrusty.json";
 import networkMapping from "../constants/networkMapping.json";
+import { languageDoc } from "../constants/languageDoc";
 
-export default function Search() {
+export default function Search({ language }) {
   const router = useRouter();
   const { chainId, account, isWeb3Enabled, web3 } = useMoralis();
   const chainString = chainId ? parseInt(chainId).toString() : "31337";
@@ -18,7 +19,7 @@ export default function Search() {
     if (isWeb3Enabled || account) {
       getProductIDD();
     }
-  }, [account]);
+  }, [account, language]);
 
   async function getProductIDD() {
     const lastProductID = await getLastProductId({
@@ -48,7 +49,7 @@ export default function Search() {
               data={[
                 {
                   inputWidth: "100%",
-                  name: "Enter your product Id",
+                  name: languageDoc[language]["EnteryourproductId"],
                   type: "text",
                   value: "",
                   validation: {
@@ -67,7 +68,7 @@ export default function Search() {
                   setCheck(true);
                 }
               }}
-              title="Search by ProductId"
+              title={languageDoc[language]["SearchbyProductId"]}
             />
           ) : (
             <div>
@@ -81,7 +82,7 @@ export default function Search() {
               >
                 <BannerStrip
                   onCloseBtnClick={function noRefCheck() {}}
-                  text="Please enter a valid product Id"
+                  text={languageDoc[language]["PleaseentervalidproductId"]}
                   type="error"
                 />
               </div>
@@ -94,7 +95,7 @@ export default function Search() {
                   data={[
                     {
                       inputWidth: "100%",
-                      name: "Enter your product Id",
+                      name: languageDoc[language]["EnteryourproductId"],
                       type: "text",
                       value: "",
                       validation: {
@@ -114,7 +115,7 @@ export default function Search() {
                       setCheck(true);
                     }
                   }}
-                  title="Search by ProductId"
+                  title={languageDoc[language]["SearchbyProductId"]}
                 />
               </div>
             </div>
@@ -131,7 +132,7 @@ export default function Search() {
             >
               <BannerStrip
                 onCloseBtnClick={function noRefCheck() {}}
-                text="Please Connect a Wallet!"
+                text={languageDoc[language]["PleaseConnectWallet"]}
                 type="error"
               />
             </div>
