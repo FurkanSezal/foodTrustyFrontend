@@ -16,7 +16,7 @@ function InputFormRestaurant() {
   const [defaultData, setDefaultData] = useState([
     {
       inputWidth: "100%",
-      name: "Name of meal",
+      name: languageDoc[language]["Nameofmeal"],
       type: "text",
       validation: {
         required: true,
@@ -25,7 +25,7 @@ function InputFormRestaurant() {
     },
     {
       inputWidth: "100%",
-      name: "Serial number",
+      name: languageDoc[language]["Serialnumber"],
       type: "tel",
       validation: {
         required: true,
@@ -34,7 +34,7 @@ function InputFormRestaurant() {
     },
     {
       inputWidth: "100%",
-      name: "ID of lot",
+      name: languageDoc[language]["idoflot"],
       type: "text",
       validation: {
         required: true,
@@ -43,7 +43,7 @@ function InputFormRestaurant() {
     },
     {
       inputWidth: "100%",
-      name: "ID of Restaurant",
+      name: languageDoc[language]["idofrestaurant"],
       type: "text",
       validation: {
         required: true,
@@ -52,167 +52,118 @@ function InputFormRestaurant() {
     },
     {
       inputWidth: "100%",
-      name: "Name of restaurant",
+      name: languageDoc[language]["Nameofrestaurant"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Corporate id of restaurant",
+      name: languageDoc[language]["Corporateidofrestaurant"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Address of restaurant",
+      name: languageDoc[language]["Addressofrestaurant"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Type of restaurant",
+      name: languageDoc[language]["Typeofrestaurant"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Zip code of restaurant",
+      name: languageDoc[language]["Zipcodeofrestaurant"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "End date",
+      name: languageDoc[language]["Enddate"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Cooking date",
+      name: languageDoc[language]["Cookingdate"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Nutritional value",
+      name: languageDoc[language]["Nutritionalvalue"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Ingredients",
+      name: languageDoc[language]["Ingredients"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Purchase date of ingredient 1",
+      name: languageDoc[language]["Purchasedateofingredient1"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Supplier of ingredient 1",
+      name: languageDoc[language]["Supplierofingredient1"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Purchase date of ingredient 2",
+      name: languageDoc[language]["Purchasedateofingredient2"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Supplier of ingredient 2",
+      name: languageDoc[language]["Supplierofingredient2"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Storage temperature ",
+      name: languageDoc[language]["Storagetemperature"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Carbon footprint",
+      name: languageDoc[language]["Carbonfootprint"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Last date of housekeeping of place and freezer",
+      name: languageDoc[language]["Lastdateofhousekeepingofplaceandfreezer"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "How many time employees wash their hands day of cooking",
+      name: languageDoc[language][
+        "Howmanytimeemployeeswashtheirhandsdayofcooking"
+      ],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
 
     {
       inputWidth: "100%",
-      name: "Image",
+      name: languageDoc[language]["Image"],
       type: "file",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Product description:",
+      name: languageDoc[language]["ProductDescription"],
       type: "textarea",
       value: "",
     },
@@ -298,8 +249,8 @@ function InputFormRestaurant() {
       await tx.wait(1);
       dispatch({
         type: "Success",
-        message: "Product Adding..",
-        title: "Product Added",
+        message: languageDoc[language]["ProductAdding"],
+        title: languageDoc[language]["ProductAdded"],
         position: "topR",
       });
     }
@@ -324,13 +275,13 @@ function InputFormRestaurant() {
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Button
               size="regular"
-              text="Add New Property"
+              text={languageDoc[language]["addnewproperty"]}
               theme="secondary"
               onClick={showModel}
             />
             <Button
               size="regular"
-              text="Add Product"
+              text={languageDoc[language]["AddProduct"]}
               theme="primary"
               type="submit"
             />

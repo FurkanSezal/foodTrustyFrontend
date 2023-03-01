@@ -5,8 +5,9 @@ import trustyContactAbi from "../constants/foodTrusty.json";
 import axios from "axios";
 import TabModal from "../components/TabModal";
 import { useEffect, useState } from "react";
+import { languageDoc } from "../constants/languageDoc";
 
-function InputFormDistributor() {
+function InputFormDistributor({ language }) {
   const { runContractFunction } = useWeb3Contract();
   const dispatch = useNotification();
   const { chainId } = useMoralis();
@@ -16,7 +17,7 @@ function InputFormDistributor() {
   const [defaultData, setDefaultData] = useState([
     {
       inputWidth: "100%",
-      name: "Name of meal",
+      name: languageDoc[language]["Nameofmeal"],
       type: "text",
       validation: {
         required: true,
@@ -25,7 +26,7 @@ function InputFormDistributor() {
     },
     {
       inputWidth: "100%",
-      name: "Serial number",
+      name: languageDoc[language]["Serialnumber"],
       type: "tel",
       validation: {
         required: true,
@@ -34,7 +35,7 @@ function InputFormDistributor() {
     },
     {
       inputWidth: "100%",
-      name: "ID of lot",
+      name: languageDoc[language]["idoflot"],
       type: "text",
       validation: {
         required: true,
@@ -43,7 +44,7 @@ function InputFormDistributor() {
     },
     {
       inputWidth: "100%",
-      name: "id of wholesaler",
+      name: languageDoc[language]["idofwholesaler"],
       type: "text",
       validation: {
         required: true,
@@ -52,150 +53,107 @@ function InputFormDistributor() {
     },
     {
       inputWidth: "100%",
-      name: "Name of wholesaler",
+      name: languageDoc[language]["Nameofwholesaler"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Corporate id of wholesaler",
+      name: languageDoc[language]["Corporateidofwholesaler"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Address of wholesaler",
+      name: languageDoc[language]["Addressofwholesaler"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Type of wholesaler",
+      name: languageDoc[language]["Typeofwholesaler"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Zip code of wholesaler",
+      name: languageDoc[language]["Zipcodeofwholesaler"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "End date",
+      name: languageDoc[language]["Enddate"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Purchase date",
+      name: languageDoc[language]["Purchasedate"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Date of sale",
+      name: languageDoc[language]["Dateofsale"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Cooking date",
+      name: languageDoc[language]["Cookingdate"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Nutritional value",
+      name: languageDoc[language]["Nutritionalvalue"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Ingredients",
+      name: languageDoc[language]["Ingredients"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
 
     {
       inputWidth: "100%",
-      name: "Storage temperature ",
+      name: languageDoc[language]["Storagetemperature"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Last date of housekeeping of freezer",
+      name: languageDoc[language]["Lastdateofhousekeepingoffreezer"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "How many time employees wash their hands day of cooking",
+      name: languageDoc[language][
+        "Howmanytimeemployeeswashtheirhandsdayofcooking"
+      ],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Carbon footprint",
+      name: languageDoc[language]["Carbonfootprint"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
 
     {
       inputWidth: "100%",
-      name: "Image",
+      name: languageDoc[language]["Image"],
       type: "file",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Product description:",
+      name: languageDoc[language]["ProductDescription"],
       type: "textarea",
       value: "",
     },
@@ -296,8 +254,8 @@ function InputFormDistributor() {
       await tx.wait(1);
       dispatch({
         type: "Success",
-        message: "Product Adding..",
-        title: "Product Added",
+        message: languageDoc[language]["ProductAdding"],
+        title: languageDoc[language]["ProductAdded"],
         position: "topR",
       });
     }
@@ -310,13 +268,13 @@ function InputFormDistributor() {
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Button
               size="regular"
-              text="Add New Property"
+              text={languageDoc[language]["addnewproperty"]}
               theme="secondary"
               onClick={showModel}
             />
             <Button
               size="regular"
-              text="Add Product"
+              text={languageDoc[language]["AddProduct"]}
               theme="primary"
               type="submit"
             />

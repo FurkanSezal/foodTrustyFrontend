@@ -48,12 +48,14 @@ export default function Home() {
     functionName: "getSlaughter",
     params: { _slaughter: account },
   });
+
   const { runContractFunction: getWholesaler } = useWeb3Contract({
     abi: trustyContactAbi,
     contractAddress: foodTrustyContractAddress,
     functionName: "getWholesaler",
     params: { _wholesaler: account },
   });
+
   const { runContractFunction: getAdmin } = useWeb3Contract({
     abi: trustyContactAbi,
     contractAddress: foodTrustyContractAddress,

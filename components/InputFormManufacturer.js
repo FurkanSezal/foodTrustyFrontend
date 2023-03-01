@@ -5,8 +5,9 @@ import trustyContactAbi from "../constants/foodTrusty.json";
 import axios from "axios";
 import TabModal from "../components/TabModal";
 import { useEffect, useState } from "react";
+import { languageDoc } from "../constants/languageDoc";
 
-function InputFormManufacturer() {
+function InputFormManufacturer({ language }) {
   const { runContractFunction } = useWeb3Contract();
   const dispatch = useNotification();
   const { chainId } = useMoralis();
@@ -16,7 +17,7 @@ function InputFormManufacturer() {
   const [defaultData, setDefaultData] = useState([
     {
       inputWidth: "100%",
-      name: "Name of meal",
+      name: languageDoc[language]["Nameofmeal"],
       type: "text",
       validation: {
         required: true,
@@ -25,7 +26,7 @@ function InputFormManufacturer() {
     },
     {
       inputWidth: "100%",
-      name: "Serial number",
+      name: languageDoc[language]["Serialnumber"],
       type: "tel",
       validation: {
         required: true,
@@ -34,7 +35,7 @@ function InputFormManufacturer() {
     },
     {
       inputWidth: "100%",
-      name: "id of lot",
+      name: languageDoc[language]["idoflot"],
       type: "text",
       validation: {
         required: true,
@@ -43,22 +44,13 @@ function InputFormManufacturer() {
     },
     {
       inputWidth: "100%",
-      name: "id of manufacturer",
+      name: languageDoc[language]["idofmanufacturer"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Name of manufacturer",
-      type: "text",
-      validation: {
-        required: true,
-      },
-      value: "",
-    },
-    {
-      inputWidth: "100%",
-      name: "Corporate id of manufacturer",
+      name: languageDoc[language]["Nameofmanufacturer"],
       type: "text",
       validation: {
         required: true,
@@ -67,147 +59,158 @@ function InputFormManufacturer() {
     },
     {
       inputWidth: "100%",
-      name: "Address of manufacturer",
+      name: languageDoc[language]["Corporateidofmanufacturer"],
+      type: "text",
+      validation: {
+        required: true,
+      },
+      value: "",
+    },
+    {
+      inputWidth: "100%",
+      name: languageDoc[language]["Addressofmanufacturer"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Type of manufacturer",
+      name: languageDoc[language]["Typeofmanufacturer"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Zip code of manufacturer",
+      name: languageDoc[language]["Zipcodeofmanufacturer"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "End date",
+      name: languageDoc[language]["Enddate"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Date of purchase of raw material",
+      name: languageDoc[language]["Dateofpurchaseofrawmaterial"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Date of sale",
+      name: languageDoc[language]["Dateofsale"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Nutritional value",
+      name: languageDoc[language]["Nutritionalvalue"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Ingredients",
+      name: languageDoc[language]["Ingredients"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Storage temperature of meal",
+      name: languageDoc[language]["Storagetemperatureofmeal"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Ingredient 1",
+      name: languageDoc[language]["Ingredient1"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Purchase date of ingredient 1",
+      name: languageDoc[language]["Purchasedateofingredient1"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Supplier of ingredient 1",
+      name: languageDoc[language]["Supplierofingredient1"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Place of storage of ingredient 1",
+      name: languageDoc[language]["Placeofstorageofingredient1"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Storage temperature of ingredient 1",
+      name: languageDoc[language]["Storagetemperatureofingredient1"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Purchase date of ingredient 2",
+      name: languageDoc[language]["Purchasedateofingredient2"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Supplier of ingredient 2",
+      name: languageDoc[language]["Supplierofingredient2"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Place of storage of ingredient 2",
+      name: languageDoc[language]["Placeofstorageofingredient2"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Storage temperature of ingredient 2",
+      name: languageDoc[language]["Storagetemperatureofingredient2"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Last date of housekeeping of place and freezer",
+      name: languageDoc[language]["Lastdateofhousekeepingofplaceandfreezer"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Last date of housekeeping of freezer",
+      name: languageDoc[language]["Lastdateofhousekeepingoffreezer"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "How many time employees wash their hands day of cooking",
+      name: languageDoc[language][
+        "Howmanytimeemployeeswashtheirhandsdayofcooking"
+      ],
       type: "text",
       value: "",
     },
 
     {
       inputWidth: "100%",
-      name: "Carbon footprint",
+      name: languageDoc[language]["Carbonfootprint"],
       type: "text",
       value: "",
     },
 
     {
       inputWidth: "100%",
-      name: "Image",
+      name: languageDoc[language]["Image"],
       type: "file",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Product description:",
+      name: languageDoc[language]["ProductDescription"],
       type: "textarea",
       value: "",
     },
@@ -217,6 +220,7 @@ function InputFormManufacturer() {
   const showModel = async () => {
     setShowModal(true);
   };
+  //console.log(language);
 
   const handleSubmit = async (event) => {
     let file;
@@ -296,8 +300,8 @@ function InputFormManufacturer() {
       await tx.wait(1);
       dispatch({
         type: "Success",
-        message: "Product Adding..",
-        title: "Product Added",
+        message: languageDoc[language]["ProductAdding"],
+        title: languageDoc[language]["ProductAdded"],
         position: "topR",
       });
     }
@@ -322,13 +326,13 @@ function InputFormManufacturer() {
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Button
               size="regular"
-              text="Add New Property"
+              text={languageDoc[language]["addnewproperty"]}
               theme="secondary"
               onClick={showModel}
             />
             <Button
               size="regular"
-              text="Add Product"
+              text={languageDoc[language]["AddProduct"]}
               theme="primary"
               type="submit"
             />
@@ -340,7 +344,7 @@ function InputFormManufacturer() {
         }}
         data={defaultData}
         onSubmit={handleSubmit}
-        title="Add Product"
+        title={languageDoc[language]["AddProduct"]}
       />
       <TabModal
         isVisible={showModal}

@@ -5,8 +5,9 @@ import trustyContactAbi from "../constants/foodTrusty.json";
 import axios from "axios";
 import TabModal from "../components/TabModal";
 import { useEffect, useState } from "react";
+import { languageDoc } from "../constants/languageDoc";
 
-function InputFormGlower() {
+function InputFormGlower({ language }) {
   const { runContractFunction } = useWeb3Contract();
   const dispatch = useNotification();
   const { chainId } = useMoralis();
@@ -16,7 +17,7 @@ function InputFormGlower() {
   const [defaultData, setDefaultData] = useState([
     {
       inputWidth: "100%",
-      name: "Name of grower",
+      name: languageDoc[language]["Nameofgrower"],
       type: "text",
       validation: {
         required: true,
@@ -25,16 +26,7 @@ function InputFormGlower() {
     },
     {
       inputWidth: "100%",
-      name: "id of grower",
-      type: "tel",
-      validation: {
-        required: true,
-      },
-      value: "",
-    },
-    {
-      inputWidth: "100%",
-      name: "Corporate id of grower",
+      name: languageDoc[language]["idofgrower"],
       type: "text",
       validation: {
         required: true,
@@ -43,7 +35,7 @@ function InputFormGlower() {
     },
     {
       inputWidth: "100%",
-      name: "id of lot",
+      name: languageDoc[language]["Corporateidofgrower"],
       type: "text",
       validation: {
         required: true,
@@ -52,7 +44,13 @@ function InputFormGlower() {
     },
     {
       inputWidth: "100%",
-      name: "Place of field",
+      name: languageDoc[language]["idoflot"],
+      type: "text",
+      value: "",
+    },
+    {
+      inputWidth: "100%",
+      name: languageDoc[language]["Placeoffield"],
       type: "text",
       validation: {
         required: true,
@@ -61,212 +59,142 @@ function InputFormGlower() {
     },
     {
       inputWidth: "100%",
-      name: "Incubation period",
+      name: languageDoc[language]["Incubationperiod"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Organic (Y/N)",
+      name: languageDoc[language]["Organic"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Harvest date",
+      name: languageDoc[language]["Harvestdate"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Test date",
+      name: languageDoc[language]["Testdate"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Test result",
+      name: languageDoc[language]["Testresult"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Type of food gave",
+      name: languageDoc[language]["Typeoffoodgave"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Supplier of food 1",
+      name: languageDoc[language]["Supplieroffood1"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Purchase date of food 1",
+      name: languageDoc[language]["Purchasedateoffood1"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Type of fertilizer",
+      name: languageDoc[language]["Typeoffertilizer"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Supplier of fertilizer",
+      name: languageDoc[language]["Supplieroffertilizer"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Purchase date of fertilizer 1",
+      name: languageDoc[language]["Purchasedateoffertilizer1"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Type of drug given",
+      name: languageDoc[language]["Typeofdruggiven"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Supplier of drug 1",
+      name: languageDoc[language]["Supplierofdrug1"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Purchase date of drug 1",
+      name: languageDoc[language]["Purchasedateofdrug1"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Type of packaging recyclable (Y/N)",
+      name: languageDoc[language]["Typeofpackagingrecyclable"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Place of packaging",
+      name: languageDoc[language]["Placeofpackaging"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Mode of transport",
+      name: languageDoc[language]["Modeoftransport"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Storage temperature",
+      name: languageDoc[language]["Storagetemperature"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Place of storage",
+      name: languageDoc[language]["Lastdateofhousekeepingofplaceandfreezer"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Last date of housekeeping of place of storage and freeze 1",
+      name: languageDoc[language][
+        "Howmanytimeemployeeswashtheirhandsdayofcooking"
+      ],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "How many time employees wash their hands day of cooking",
+      name: languageDoc[language]["Carbonfootprint"],
       type: "text",
-      validation: {
-        required: true,
-      },
-      value: "",
-    },
-    {
-      inputWidth: "100%",
-      name: "Carbon footprint",
-      type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
 
     {
       inputWidth: "100%",
-      name: "Image",
+      name: languageDoc[language]["Image"],
       type: "file",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Product description:",
+      name: languageDoc[language]["ProductDescription"],
       type: "textarea",
       value: "",
     },
@@ -365,8 +293,8 @@ function InputFormGlower() {
       await tx.wait(1);
       dispatch({
         type: "Success",
-        message: "Product Adding..",
-        title: "Product Added",
+        message: languageDoc[language]["ProductAdding"],
+        title: languageDoc[language]["ProductAdded"],
         position: "topR",
       });
     }
@@ -379,13 +307,13 @@ function InputFormGlower() {
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Button
               size="regular"
-              text="Add New Property"
+              text={languageDoc[language]["addnewproperty"]}
               theme="secondary"
               onClick={showModel}
             />
             <Button
               size="regular"
-              text="Add Product"
+              text={languageDoc[language]["AddProduct"]}
               theme="primary"
               type="submit"
             />

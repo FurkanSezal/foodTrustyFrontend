@@ -16,7 +16,7 @@ function InputFormSlaughter() {
   const [defaultData, setDefaultData] = useState([
     {
       inputWidth: "100%",
-      name: "Name of slaughter",
+      name: languageDoc[language]["Nameofslaughter"],
       type: "text",
       validation: {
         required: true,
@@ -25,7 +25,7 @@ function InputFormSlaughter() {
     },
     {
       inputWidth: "100%",
-      name: "Serial number",
+      name: languageDoc[language]["Serialnumber"],
       type: "tel",
       validation: {
         required: true,
@@ -34,185 +34,163 @@ function InputFormSlaughter() {
     },
     {
       inputWidth: "100%",
-      name: "ID of lot",
-      type: "text",
+      name: languageDoc[language]["idofslaughter"],
       validation: {
         required: true,
       },
+      type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "ID of Restaurant",
+      name: languageDoc[language]["Corporateidofslaughter"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Name of restaurant",
+      name: languageDoc[language]["idoflot"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Corporate id of restaurant",
+      name: languageDoc[language]["Dateofunloadingofanimals"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Address of restaurant",
+      name: languageDoc[language]["Dateofinspection"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Type of restaurant",
+      name: languageDoc[language]["Dateofcheckingofveterinary"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Zip code of restaurant",
+      name: languageDoc[language]["Resultofcheckingofveterinary"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "End date",
+      name: languageDoc[language]["Dateandtimeofpreparationofslaughtering"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Cooking date",
+      name: languageDoc[language]["Dateandtimeofslump"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Nutritional value",
+      name: languageDoc[language]["Dateandtimeofstunning"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Ingredients",
+      name: languageDoc[language]["Dateandtimeofstripping"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Purchase date of ingredient 1",
+      name: languageDoc[language]["Dateandtimeofbleening"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Supplier of ingredient 1",
+      name: languageDoc[language]["Dateandtimeofcheckingpostmortem"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Purchase date of ingredient 2",
+      name: languageDoc[language]["Resultofcheckingpostmortem"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Supplier of ingredient 2",
+      name: languageDoc[language]["Markingclassificationandweighed"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Storage temperature ",
+      name: languageDoc[language]["Dateandtimeofrefirgeration"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Carbon footprint",
+      name: languageDoc[language]["Placeofpackaging"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Last date of housekeeping of place and freezer",
+      name: languageDoc[language]["Modeoftransport"],
       type: "text",
-      validation: {
-        required: true,
-      },
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "How many time employees wash their hands day of cooking",
+      name: languageDoc[language]["Storagetemperature"],
       type: "text",
-      validation: {
-        required: true,
-      },
+      value: "",
+    },
+    {
+      inputWidth: "100%",
+      name: languageDoc[language]["Placeofstorage"],
+      type: "text",
+      value: "",
+    },
+    {
+      inputWidth: "100%",
+      name: languageDoc[language]["Lastdateofhousekeepingoffreezer"],
+      type: "text",
+      value: "",
+    },
+    {
+      inputWidth: "100%",
+      name: languageDoc[language][
+        "Howmanytimeemployeeswashtheirhandsdayofcooking"
+      ],
+      type: "text",
+      value: "",
+    },
+    {
+      inputWidth: "100%",
+      name: languageDoc[language]["Carbonfootprint"],
+      type: "text",
+      value: "",
+    },
+    {
+      inputWidth: "100%",
+      name: languageDoc[language]["HallalKosherunreligious"],
+      type: "text",
       value: "",
     },
 
     {
       inputWidth: "100%",
-      name: "Image",
+      name: languageDoc[language]["Image"],
       type: "file",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: "Product description:",
+      name: languageDoc[language]["ProductDescription"],
       type: "textarea",
       value: "",
     },
@@ -298,12 +276,25 @@ function InputFormSlaughter() {
       await tx.wait(1);
       dispatch({
         type: "Success",
-        message: "Product Adding..",
-        title: "Product Added",
+        message: languageDoc[language]["ProductAdding"],
+        title: languageDoc[language]["ProductAdded"],
         position: "topR",
       });
     }
   };
+
+  const handleAddTab = async (property) => {
+    const textField = {
+      inputWidth: "100%",
+      name: property,
+      type: "text",
+
+      value: "",
+    };
+    setDefaultData([...defaultData, textField]);
+    //console.log(defaultData);
+  };
+
   useEffect(() => {}, [defaultData]);
   return (
     <div>
@@ -312,13 +303,13 @@ function InputFormSlaughter() {
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Button
               size="regular"
-              text="Add New Property"
+              text={languageDoc[language]["addnewproperty"]}
               theme="secondary"
               onClick={showModel}
             />
             <Button
               size="regular"
-              text="Add Product"
+              text={languageDoc[language]["AddProduct"]}
               theme="primary"
               type="submit"
             />
@@ -330,7 +321,7 @@ function InputFormSlaughter() {
         }}
         data={defaultData}
         onSubmit={handleSubmit}
-        title="Add Product"
+        title={languageDoc[language]["AddProduct"]}
       />
       <TabModal
         isVisible={showModal}

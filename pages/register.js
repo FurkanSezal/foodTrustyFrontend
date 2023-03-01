@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useMoralis, useWeb3Contract } from "react-moralis";
 import networkMapping from "../constants/networkMapping.json";
@@ -12,6 +13,7 @@ import InputFormManufacturer from "../components/InputFormManufacturer";
 import InputFormSlaughter from "../components/InputFormSlaughter";
 import { BannerStrip } from "@web3uikit/core";
 import InputFormExample from "../components/example";
+import { languageDoc } from "../constants/languageDoc";
 
 export default function Home() {
   const [formId, setFormId] = useState("");
@@ -23,6 +25,9 @@ export default function Home() {
   } else {
     foodTrustyContractAddress = networkMapping["31337"].foodTrusty[0];
   }
+  const [language, setLanguage] = useState("FR");
+  const router = useRouter();
+  const { lang } = router.query;
 
   const { runContractFunction: getManufacturer } = useWeb3Contract({
     abi: trustyContactAbi,
@@ -51,12 +56,14 @@ export default function Home() {
     functionName: "getSlaughter",
     params: { _slaughter: account },
   });
+
   const { runContractFunction: getWholesaler } = useWeb3Contract({
     abi: trustyContactAbi,
     contractAddress: foodTrustyContractAddress,
     functionName: "getWholesaler",
     params: { _wholesaler: account },
   });
+
   const { runContractFunction: getAdmin } = useWeb3Contract({
     abi: trustyContactAbi,
     contractAddress: foodTrustyContractAddress,
@@ -85,12 +92,17 @@ export default function Home() {
     }
   }
 
+  async function handleLanguage(language) {
+    // console.log(language);
+    setLanguage(language);
+  }
+
   useEffect(() => {
     setFormId(0);
     if (account) {
       ShowForm();
     }
-  }, [account]);
+  }, [account, language]);
 
   return (
     <div className={styles.container}>
@@ -99,7 +111,7 @@ export default function Home() {
         <meta name="description" content="foodTrusty" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      <Header setLanguage={handleLanguage} lang={lang} />
       <div>
         {isWeb3Enabled ? (
           chainString === "80001" || networkMapping[chainString] ? (
@@ -107,12 +119,12 @@ export default function Home() {
               <div>
                 <BannerStrip
                   onCloseBtnClick={function noRefCheck() {}}
-                  text="You are not registered!"
+                  text={languageDoc[language]["Youarenotregistered"]}
                   type="error"
                 />
               </div>
             ) : formId === 1 ? (
-              <InputFormExample />
+              <InputFormManufacturer language={language} />
             ) : formId === 2 ? (
               <InputFormRestaurant />
             ) : formId === 3 ? (
@@ -128,7 +140,7 @@ export default function Home() {
             <div>
               <BannerStrip
                 onCloseBtnClick={function noRefCheck() {}}
-                text="Please switch to Polygon Network"
+                text={languageDoc[language]["PleaseswitchtoPolygonNetwork"]}
                 type="error"
               />
             </div>
@@ -137,7 +149,7 @@ export default function Home() {
           <div>
             <BannerStrip
               onCloseBtnClick={function noRefCheck() {}}
-              text="Please connect a Wallet"
+              text={languageDoc[language]["PleaseConnectWallet"]}
               type="error"
             />
           </div>

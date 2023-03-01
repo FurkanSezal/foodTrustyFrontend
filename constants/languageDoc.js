@@ -13,6 +13,119 @@ const languageDoc = {
     PleaseConnectWallet: "Please Connect a Wallet!",
     PleaseentervalidproductId: "Please enter a valid product Id",
     PleaseswitchtoPolygonNetwork: "Please switch to Polygon Network",
+    Youarenotregistered: "You are not registered!",
+    addnewproperty: "Add New Property",
+    ProductAdding: "Product Adding...",
+    ProductAdded: "Product Added",
+    ////////////////////////////////////////////////////////////////////////////
+    /// Manufacturer Form
+    Nameofmeal: "Name of meal",
+    Serialnumber: "Serial number",
+    idoflot: "id of lot",
+    idofmanufacturer: "id of manufacturer",
+    Nameofmanufacturer: "Nom du manufacturer",
+    Corporateidofmanufacturer: "Corporate id of manufacturer",
+    Addressofmanufacturer: "Address of manufacturer",
+    Typeofmanufacturer: "Type of manufacturer",
+    Zipcodeofmanufacturer: "Zip code of manufacturer",
+    Enddate: "End date",
+    Dateofpurchaseofrawmaterial: "Date of purchase of raw material",
+    Dateofsale: "Date of sale",
+    Nutritionalvalue: "Nutritional value",
+    Ingredients: "Ingredients",
+    Storagetemperatureofmeal: "Storage temperature of meal",
+    Ingredient1: "Ingredient 1",
+    Purchasedateofingredient1: "Purchase date of ingredient 1",
+    Supplierofingredient1: "Supplier of ingredient 1",
+    Placeofstorageofingredient1: "Place of storage of ingredient 1",
+    Storagetemperatureofingredient1: "Storage temperature of ingredient 1",
+    Purchasedateofingredient2: "Purchase date of ingredient 2",
+    Supplierofingredient2: "Supplier of ingredient 2",
+    Placeofstorageofingredient2: "Place of storage of ingredient 2",
+    Storagetemperatureofingredient2: "Storage temperature of ingredient 2",
+    Lastdateofhousekeepingofplaceandfreezer:
+      "Last date of housekeeping of place and freezer",
+    Lastdateofhousekeepingoffreezer: "Last date of housekeeping of freezer",
+    Howmanytimeemployeeswashtheirhandsdayofcooking:
+      "How many time employees wash their hands day of cooking",
+    Carbonfootprint: "Carbon footprint",
+    Image: "Image",
+    ProductDescription: "Product Description",
+    ////
+    ////////////////////////////////////////////////////////////////////////////
+    //// Restaurant Form
+    idofrestaurant: "id of restaurant ",
+    Nameofrestaurant: "Name of restaurant",
+    Corporateidofrestaurant: "Corporate id of restaurant",
+    Addressofrestaurant: "Address of restaurant",
+    Typeofrestaurant: "Type of restaurant",
+    Zipcodeofrestaurant: "Zip code of restaurant",
+    Cookingdate: "Cooking date",
+    Storagetemperature: "Storage temperature",
+    Lastdateofhousekeepingofplaceandfreezer:
+      "Last date of housekeeping of place and freezer",
+    ////
+    ////////////////////////////////////////////////////////////////////////////
+    //// Slaughter Form
+    ////
+    Nameofslaughter: "Name of slaughter",
+    idofslaughter: "id of slaughter",
+    Corporateidofslaughter: "Corporate id of slaughter / RCS Siren",
+    Dateofunloadingofanimals: "Date of unloading of animals",
+    Dateofinspection: "Date of inspection",
+    Dateofcheckingofveterinary: "Date of checking of veterinary",
+    Resultofcheckingofveterinary: "Result of checking of veterinary",
+    Dateandtimeofpreparationofslaughtering:
+      "Date and time of preparation of slaughtering",
+    Dateandtimeofslump: "Date and time of slump",
+    Dateandtimeofstunning: "Date and time of stunning",
+    Dateandtimeofstripping: "Date and time of stripping",
+    Dateandtimeofbleening: "Date and time of bleening",
+    Dateandtimeofcheckingpostmortem:
+      "Date and time of checking post-mortem / Date et heure de l'inspection post-mortem",
+    Resultofcheckingpostmortem: "Result of checking post-mortem",
+    Markingclassificationandweighed: "Marking classification and weighed",
+    Dateandtimeofrefirgeration: "Date and time of refirgeration",
+    Placeofpackaging: "Place of packaging",
+    Modeoftransport: "Mode of transport",
+    Placeofstorage: "Place of storage",
+    HallalKosherunreligious: "Hallal/Kosher/unreligious",
+    ////
+    ////////////////////////////////////////////////////////////////////////////
+    //// Grower Form
+    ////
+    Nameofgrower: "Name of grower",
+    idofgrower: "id of grower",
+    Corporateidofgrower: "Corporate id of grower",
+    Placeoffield: "Place of field",
+    Incubationperiod: "Incubation period",
+    Organic: "Organic (Y/N)",
+    Harvestdate: "Harvest date",
+    Testdate: "Test date",
+    Testresult: "Test result",
+    Typeoffoodgave: "Type of food gave",
+    Supplieroffood1: "Supplier of food 1",
+    Purchasedateoffood1: "Purchase date of food 1",
+    Typeoffertilizer: "Type of fertilizer",
+    Supplieroffertilizer: "Supplier of fertilizer",
+    Purchasedateoffertilizer1: "Purchase date of fertilizer 1",
+    Typeofdruggiven: "Type of drug given",
+    Supplierofdrug1: "Supplier of drug 1",
+    Purchasedateofdrug1: "Purchase date of drug 1",
+    Typeofpackagingrecyclable: "Type of packaging recyclable (Y/N)",
+    Placeofpackaging: "Place of packaging",
+    ////
+    ////////////////////////////////////////////////////////////////////////////
+    //// Distributor Form
+    ////
+    idofwholesaler: "id of wholesaler",
+    Nameofwholesaler: "Name of wholesaler",
+    Corporateidofwholesaler: "Corporate id of wholesaler",
+    Addressofwholesaler: "Address of wholesaler",
+    Typeofwholesaler: "Type of wholesaler",
+    Zipcodeofwholesaler: "Zip code of wholesaler",
+    Purchasedate: "Purchase date",
+    Cookingdate: "Cooking date",
   },
   FR: {
     greeting: "hola",
@@ -29,6 +142,115 @@ const languageDoc = {
     PleaseentervalidproductId:
       "Veuillez saisir un identifiant de produit valide",
     PleaseswitchtoPolygonNetwork: "Veuillez passer au réseau Polygon",
+    Youarenotregistered: "Vous n'êtes pas enregistré!",
+    addnewproperty: "Ajouter Une Nouvelle Propriété",
+    ProductAdding: "Ajout de produit..",
+    ProductAdded: "Produit ajouté",
+    ////////////////////////////////////////////////////////////////////////////
+    Nameofmeal: "Nom du plat",
+    Serialnumber: "Identifiant du plat",
+    idoflot: "id du lot",
+    idofmanufacturer: "Identifiant du grossiste",
+    Nameofmanufacturer: "Nom du manufacturer",
+    Corporateidofmanufacturer: "RCS Siren",
+    Addressofmanufacturer: "Address of manufacturer",
+    Typeofmanufacturer: "Type de manufacturer",
+    Zipcodeofmanufacturer: "Code postal du manufacturer",
+    Enddate: "Date limite de consommation ",
+    Dateofpurchaseofrawmaterial: "Date d'achat de la matière première",
+    Dateofsale: "Date de vente",
+    Nutritionalvalue: "Valeurs nutritives",
+    Ingredients: "Ingrédients",
+    Storagetemperatureofmeal: " Température de conservation du plat",
+    Ingredient1: "Ingrédient 1",
+    Purchasedateofingredient1: "Date d'achat de l'ingrédient 1",
+    Supplierofingredient1: "Fournisseur de l'ingrédient 1",
+    Placeofstorageofingredient1: "Place of storage of ingredient 1",
+    Storagetemperatureofingredient1: "Storage temperature of ingredient 1",
+    Purchasedateofingredient2: " Date d'achat de l'ingrédient 2",
+    Supplierofingredient2: "Fournisseur de l'ingrédient 2",
+    Placeofstorageofingredient2: "Lieu de stockage de l'ingrédient 2",
+    Storagetemperatureofingredient2:
+      "Température de stockage de l'ingrédient 2",
+    Lastdateofhousekeepingofplaceandfreezer:
+      "Date du dernier nettoyage de la cuisine et des frigos",
+    Lastdateofhousekeepingoffreezer: "Date du dernier nettoyage des frigos",
+    Howmanytimeemployeeswashtheirhandsdayofcooking:
+      "Combien de fois les salariés se sont lavés mains le jour de la préparation",
+    Carbonfootprint: "Bilan carbone",
+    Image: "Image",
+    ProductDescription: "Description du produit",
+    ////////////////////////////////////////////////////////////////////////////
+    idofrestaurant: "Identifiant du restaurant",
+    Nameofrestaurant: "Nom du restaurant",
+    Corporateidofrestaurant: "RCS Siren du restaurant",
+    Addressofrestaurant: "Address of restaurant",
+    Typeofrestaurant: "Type de restaurant",
+    Zipcodeofrestaurant: "Code postal du restaurant",
+    Cookingdate: "Date de préparation ",
+    Storagetemperature: "A conserver entre 0 et 4°",
+    Lastdateofhousekeepingofplaceandfreezer:
+      "Date du dernier nettoyage de la cuisine et des frigos",
+    ////
+    ////////////////////////////////////////////////////////////////////////////
+    //// Slaughter Form
+    ////
+    Nameofslaughter: "Nom de l'abattoir",
+    idofslaughter: "Identifiant de l'abattoir",
+    Corporateidofslaughter: "RCS Siren",
+    Dateofunloadingofanimals: "Date de déchargement",
+    Dateofinspection: "Date du contrôle (réception contrôle)",
+    Dateofcheckingofveterinary: "Date de l'inspection ante mortem",
+    Resultofcheckingofveterinary: "Résultat de l'inspection ante mortem",
+    Dateandtimeofpreparationofslaughtering: "Date et heure de l'amenée",
+    Dateandtimeofslump: "Date et heure de l'affalage (levage)",
+    Dateandtimeofstunning: "Date et heure de l'étourdissement (contention)",
+    Dateandtimeofstripping: "Date et heure du dépouillement",
+    Dateandtimeofbleening: "Date et heure de la saignée",
+    Dateandtimeofcheckingpostmortem:
+      "Date et heure de l'inspection post-mortem",
+    Resultofcheckingpostmortem: "Resultat de l'inspection post-mortem",
+    Markingclassificationandweighed: "Marquage classification et pesée",
+    Dateandtimeofrefirgeration: "Date et heure de réfrigération",
+    Placeofpackaging: "lieu d'emballage",
+    Modeoftransport: "Mode de transport",
+    Placeofstorage: "Lieu de stockage",
+    HallalKosherunreligious: "Hallal/Kosher/unreligious",
+    ////
+    ////////////////////////////////////////////////////////////////////////////
+    //// Grower Form
+    ////
+    Nameofgrower: "Nom de l'agriculteur",
+    idofgrower: "Identifiant du fermier",
+    Corporateidofgrower: "RCS Siren",
+    Placeoffield: "Localisation du champs",
+    Incubationperiod: "Période d'incubation",
+    Organic: "Biologique (O/N)",
+    Harvestdate: "Date de récolte",
+    Testdate: "Date d'analyse",
+    Testresult: "Résultats d'analyse",
+    Typeoffoodgave: "Type de nourriture donnée",
+    Supplieroffood1: "Fournisseur de nourriture 1",
+    Purchasedateoffood1: "Date d'achat de l'aliment 1",
+    Typeoffertilizer: "Type d'engrais",
+    Supplieroffertilizer: "Fournisseur d'engrais",
+    Purchasedateoffertilizer1: "Date d'achat de l'engrai 1",
+    Typeofdruggiven: "Type de médicaments donnés",
+    Supplierofdrug1: "Fournisseur du médicament 1",
+    Purchasedateofdrug1: "Date d'achat du médicament 1",
+    Typeofpackagingrecyclable: "Packaging recyclable (O/N)",
+    Placeofpackaging: "lieu d'emballage",
+    ////
+    ////////////////////////////////////////////////////////////////////////////
+    //// Distributor Form
+    ////
+    idofwholesaler: "Identifiant du grossiste",
+    Nameofwholesaler: "Nom du wholesaler",
+    Corporateidofwholesaler: "RCS Siren",
+    Addressofwholesaler: "Address of wholesaler",
+    Typeofwholesaler: "Type de wholesaler",
+    Zipcodeofwholesaler: "Code postal du wholesaler",
+    Purchasedate: "Date d'achat",
   },
 };
 
