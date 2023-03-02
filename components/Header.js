@@ -18,6 +18,8 @@ export default function Header({ setLanguage, lang }) {
   useEffect(() => {
     if (lang == "EN") {
       setLanguagee("EN");
+    } else {
+      setLanguagee("FR");
     }
   }, []);
 
