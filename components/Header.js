@@ -5,9 +5,16 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { languageDoc } from "../constants/languageDoc";
 import FoodTrustyJPG from "../public/FoodTrustyJPG.jpg";
+import { useRouter } from "next/router";
 
 export default function Header({ setLanguage, lang }) {
   const [language, setLanguagee] = useState("FR");
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push("/");
+  };
 
   const handleLanguageChange = (event) => {
     const newLanguage = event.target.checked ? "EN" : "FR";
@@ -26,8 +33,8 @@ export default function Header({ setLanguage, lang }) {
   return (
     <nav>
       <div className="border-b-2 flex flex-row">
-        <div className="flex items-center">
-          <div>
+        <div className="px-10 flex items-center">
+          <div onClick={handleClick} style={{ cursor: "pointer" }}>
             <Image src={FoodTrustyJPG} alt="" width={80} height={80} />
           </div>
         </div>

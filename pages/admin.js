@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
+import { useRouter } from "next/router";
 import { useMoralis, useWeb3Contract } from "react-moralis";
 import networkMapping from "../constants/networkMapping.json";
 import trustyContactAbi from "../constants/foodTrusty.json";
@@ -13,6 +14,7 @@ import {
   Button,
   useNotification,
 } from "@web3uikit/core";
+import { languageDoc } from "../constants/languageDoc";
 
 export default function Home() {
   const { chainId, account, isWeb3Enabled, web3 } = useMoralis();
@@ -29,6 +31,10 @@ export default function Home() {
   }
 
   const [flag, setflag] = useState(false);
+
+  const [language, setLanguage] = useState("FR");
+  const router = useRouter();
+  const { lang } = router.query;
 
   const { runContractFunction: addManufacturer } = useWeb3Contract({
     abi: trustyContactAbi,
@@ -401,6 +407,11 @@ export default function Home() {
     }
   }
 
+  async function handleLanguage(language) {
+    // console.log(language);
+    setLanguage(language);
+  }
+
   async function showHomePage() {
     if (
       (await getAdmin({
@@ -420,7 +431,7 @@ export default function Home() {
     if (account) {
       showHomePage();
     }
-  }, [account, isWeb3Enabled]);
+  }, [account, isWeb3Enabled, language]);
 
   return (
     <div className={styles.container}>
@@ -429,7 +440,7 @@ export default function Home() {
         <meta name="description" content="foodTrusty" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      <Header setLanguage={handleLanguage} lang={lang} />
 
       <div>
         {isWeb3Enabled ? (
@@ -462,7 +473,7 @@ export default function Home() {
                               <div>
                                 <Button
                                   size="regular"
-                                  text="Delete The Role"
+                                  text={languageDoc[language]["DeleteTheRole"]}
                                   theme="secondary"
                                   onClick={handleDeleteRole}
                                   type="button"
@@ -472,7 +483,7 @@ export default function Home() {
                               <div className="py-4">
                                 <Button
                                   size="regular"
-                                  text="Add New Role"
+                                  text={languageDoc[language]["AddNewRole"]}
                                   theme="primary"
                                   type="submit"
                                 />
@@ -481,7 +492,7 @@ export default function Home() {
                           }
                           data={[
                             {
-                              name: "Address of Role",
+                              name: languageDoc[language]["AddressofRole"],
                               type: "text",
                               validation: {
                                 required: true,
@@ -490,14 +501,18 @@ export default function Home() {
                             },
                           ]}
                           onSubmit={handleAddRole}
-                          title="Address of Role"
+                          title={languageDoc[language]["AddressofRole"]}
                         />
                       </div>
                     </div>
                   ) : (
                     <div>
                       <BannerStrip
-                        text="You are not authorized to see this page"
+                        text={
+                          languageDoc[language][
+                            "Youarenotauthorizedtoseethispage"
+                          ]
+                        }
                         type="error"
                       />
                     </div>
@@ -507,7 +522,7 @@ export default function Home() {
             ) : (
               <div>
                 <BannerStrip
-                  text="Please switch to Polygon Network"
+                  text={languageDoc[language]["PleaseswitchtoPolygonNetwork"]}
                   type="error"
                 />
               </div>
@@ -515,7 +530,10 @@ export default function Home() {
           </div>
         ) : (
           <div>
-            <BannerStrip text="Please Connect a Wallet!" type="error" />
+            <BannerStrip
+              text={languageDoc[language]["PleaseConnectWallet"]}
+              type="error"
+            />
           </div>
         )}
       </div>

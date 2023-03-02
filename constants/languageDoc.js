@@ -17,6 +17,7 @@ const languageDoc = {
     addnewproperty: "Add New Property",
     ProductAdding: "Product Adding...",
     ProductAdded: "Product Added",
+    Youarenotauthorizedtoseethispage: "You are not authorized to see this page",
     ////////////////////////////////////////////////////////////////////////////
     /// Manufacturer Form
     Nameofmeal: "Name of meal",
@@ -126,6 +127,10 @@ const languageDoc = {
     Zipcodeofwholesaler: "Zip code of wholesaler",
     Purchasedate: "Purchase date",
     Cookingdate: "Cooking date",
+    ////////////////////////////////////////////////////////////////////////////
+    AddressofRole: "Address of Role",
+    DeleteTheRole: "Delete The Role",
+    AddNewRole: "Add New Role",
   },
   FR: {
     greeting: "hola",
@@ -146,6 +151,8 @@ const languageDoc = {
     addnewproperty: "Ajouter Une Nouvelle Propriété",
     ProductAdding: "Ajout de produit..",
     ProductAdded: "Produit ajouté",
+    Youarenotauthorizedtoseethispage:
+      "Vous n'êtes pas autorisé à voir cette page",
     ////////////////////////////////////////////////////////////////////////////
     Nameofmeal: "Nom du plat",
     Serialnumber: "Identifiant du plat",
@@ -251,6 +258,9 @@ const languageDoc = {
     Typeofwholesaler: "Type de wholesaler",
     Zipcodeofwholesaler: "Code postal du wholesaler",
     Purchasedate: "Date d'achat",
+    AddressofRole: "Adresse du rôle",
+    DeleteTheRole: "Supprimer le rôle",
+    AddNewRole: "Ajouter un nouveau rôle",
   },
 };
 
