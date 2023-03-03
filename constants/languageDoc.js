@@ -131,11 +131,16 @@ const languageDoc = {
     AddressofRole: "Address of Role",
     DeleteTheRole: "Delete The Role",
     AddNewRole: "Add New Role",
+    Restaurant: "Restaurant",
+    Grower: "Grower",
+    Slaughter: "Slaughter",
+    Manufacturer: "Manufacturer",
+    Wholesaler: "Wholesaler",
   },
   FR: {
     greeting: "hola",
     agree: "claro",
-    Home: "Maison",
+    Home: "Accueil",
     AddProduct: "Ajouter un Produit",
     ProductId: "Id Produit",
     DownloadQRCode: "Télécharger le code QR",
@@ -258,9 +263,18 @@ const languageDoc = {
     Typeofwholesaler: "Type de wholesaler",
     Zipcodeofwholesaler: "Code postal du wholesaler",
     Purchasedate: "Date d'achat",
+    ////
+    ////////////////////////////////////////////////////////////////////////////
+    ////
+    ////
     AddressofRole: "Adresse du rôle",
     DeleteTheRole: "Supprimer le rôle",
     AddNewRole: "Ajouter un nouveau rôle",
+    Restaurant: "Restaurateur",
+    Grower: "Agriculteur",
+    Slaughter: "Abattoir",
+    Manufacturer: "Industriel agroalimentaire/ Transformateur",
+    Wholesaler: "Grossiste/Distributeur",
   },
 };
 

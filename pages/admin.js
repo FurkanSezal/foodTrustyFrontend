@@ -453,11 +453,11 @@ export default function Home() {
                       <Radios
                         id="radios"
                         items={[
-                          "Restaurant",
-                          "Grower",
-                          "Slaughter",
-                          "Manufacturer",
-                          "Wholesaler",
+                          languageDoc[language]["Restaurant"],
+                          languageDoc[language]["Grower"],
+                          languageDoc[language]["Slaughter"],
+                          languageDoc[language]["Manufacturer"],
+                          languageDoc[language]["Wholesaler"],
                           "Admin",
                         ]}
                         onChange={(e) => {
