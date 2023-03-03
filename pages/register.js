@@ -12,7 +12,6 @@ import InputFormRestaurant from "../components/InputFormRestaurant";
 import InputFormManufacturer from "../components/InputFormManufacturer";
 import InputFormSlaughter from "../components/InputFormSlaughter";
 import { BannerStrip } from "@web3uikit/core";
-import InputFormExample from "../components/example";
 import { languageDoc } from "../constants/languageDoc";
 
 export default function Home() {
