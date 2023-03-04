@@ -28,7 +28,7 @@ export default function Header({ setLanguage, lang }) {
     } else {
       setLanguagee("FR");
     }
-  }, []);
+  }, [lang]);
 
   return (
     <nav>
