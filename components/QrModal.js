@@ -23,8 +23,8 @@ export default function UpdateModal({
           console.error(err);
         }
       }}
-      okText={languageDoc[language]["DownloadQRCode"]}
-      cancelText={languageDoc[language]["Cancel"]}
+      okText={languageDoc[language ? language : "FR"]["DownloadQRCode"]}
+      cancelText={languageDoc[language ? language : "FR"]["Cancel"]}
     >
       <Image
         loader={() => imageURI}

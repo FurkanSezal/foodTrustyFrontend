@@ -17,7 +17,7 @@ function InputFormGlower({ language }) {
   const [defaultData, setDefaultData] = useState([
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Nameofgrower"],
+      name: languageDoc[language ? language : "FR"]["Nameofgrower"],
       type: "text",
       validation: {
         required: true,
@@ -26,7 +26,7 @@ function InputFormGlower({ language }) {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["idofgrower"],
+      name: languageDoc[language ? language : "FR"]["idofgrower"],
       type: "text",
       validation: {
         required: true,
@@ -35,7 +35,7 @@ function InputFormGlower({ language }) {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Corporateidofgrower"],
+      name: languageDoc[language ? language : "FR"]["Corporateidofgrower"],
       type: "text",
       validation: {
         required: true,
@@ -44,13 +44,13 @@ function InputFormGlower({ language }) {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["idoflot"],
+      name: languageDoc[language ? language : "FR"]["idoflot"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Placeoffield"],
+      name: languageDoc[language ? language : "FR"]["Placeoffield"],
       type: "text",
       validation: {
         required: true,
@@ -59,121 +59,127 @@ function InputFormGlower({ language }) {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Incubationperiod"],
+      name: languageDoc[language ? language : "FR"]["Incubationperiod"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Organic"],
+      name: languageDoc[language ? language : "FR"]["Organic"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Harvestdate"],
+      name: languageDoc[language ? language : "FR"]["Harvestdate"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Testdate"],
+      name: languageDoc[language ? language : "FR"]["Testdate"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Testresult"],
+      name: languageDoc[language ? language : "FR"]["Testresult"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Typeoffoodgave"],
+      name: languageDoc[language ? language : "FR"]["Typeoffoodgave"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Supplieroffood1"],
+      name: languageDoc[language ? language : "FR"]["Supplieroffood1"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Purchasedateoffood1"],
+      name: languageDoc[language ? language : "FR"]["Purchasedateoffood1"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Typeoffertilizer"],
+      name: languageDoc[language ? language : "FR"]["Typeoffertilizer"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Supplieroffertilizer"],
+      name: languageDoc[language ? language : "FR"]["Supplieroffertilizer"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Purchasedateoffertilizer1"],
+      name: languageDoc[language ? language : "FR"][
+        "Purchasedateoffertilizer1"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Typeofdruggiven"],
+      name: languageDoc[language ? language : "FR"]["Typeofdruggiven"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Supplierofdrug1"],
+      name: languageDoc[language ? language : "FR"]["Supplierofdrug1"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Purchasedateofdrug1"],
+      name: languageDoc[language ? language : "FR"]["Purchasedateofdrug1"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Typeofpackagingrecyclable"],
+      name: languageDoc[language ? language : "FR"][
+        "Typeofpackagingrecyclable"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Placeofpackaging"],
+      name: languageDoc[language ? language : "FR"]["Placeofpackaging"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Modeoftransport"],
+      name: languageDoc[language ? language : "FR"]["Modeoftransport"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Storagetemperature"],
+      name: languageDoc[language ? language : "FR"]["Storagetemperature"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Lastdateofhousekeepingofplaceandfreezer"],
+      name: languageDoc[language ? language : "FR"][
+        "Lastdateofhousekeepingofplaceandfreezer"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language][
+      name: languageDoc[language ? language : "FR"][
         "Howmanytimeemployeeswashtheirhandsdayofcooking"
       ],
       type: "text",
@@ -181,20 +187,20 @@ function InputFormGlower({ language }) {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Carbonfootprint"],
+      name: languageDoc[language ? language : "FR"]["Carbonfootprint"],
       type: "text",
       value: "",
     },
 
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Image"],
+      name: languageDoc[language ? language : "FR"]["Image"],
       type: "file",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["ProductDescription"],
+      name: languageDoc[language ? language : "FR"]["ProductDescription"],
       type: "textarea",
       value: "",
     },
@@ -293,8 +299,8 @@ function InputFormGlower({ language }) {
       await tx.wait(1);
       dispatch({
         type: "Success",
-        message: languageDoc[language]["ProductAdding"],
-        title: languageDoc[language]["ProductAdded"],
+        message: languageDoc[language ? language : "FR"]["ProductAdding"],
+        title: languageDoc[language ? language : "FR"]["ProductAdded"],
         position: "topR",
       });
     }
@@ -307,13 +313,13 @@ function InputFormGlower({ language }) {
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Button
               size="regular"
-              text={languageDoc[language]["addnewproperty"]}
+              text={languageDoc[language ? language : "FR"]["addnewproperty"]}
               theme="secondary"
               onClick={showModel}
             />
             <Button
               size="regular"
-              text={languageDoc[language]["AddProduct"]}
+              text={languageDoc[language ? language : "FR"]["AddProduct"]}
               theme="primary"
               type="submit"
             />
@@ -331,6 +337,7 @@ function InputFormGlower({ language }) {
         isVisible={showModal}
         onClose={hideModel}
         onAddProperty={handleAddTab}
+        language={language}
       ></TabModal>
     </div>
   );

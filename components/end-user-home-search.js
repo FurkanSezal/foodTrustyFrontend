@@ -45,11 +45,15 @@ export default function Search({ language }) {
               buttonConfig={{
                 onClick: function noRefCheck() {},
                 theme: "primary",
+                text: languageDoc[language ? language : "FR"]["Submit"],
               }}
               data={[
                 {
                   inputWidth: "100%",
-                  name: languageDoc[language]["EnteryourproductId"],
+                  name: !language
+                    ? languageDoc["FR"]["EnteryourproductId"]
+                    : languageDoc[language]["EnteryourproductId"],
+
                   type: "text",
                   value: "",
                   validation: {
@@ -63,12 +67,19 @@ export default function Search({ language }) {
                   setCheck(false);
                   router.push({
                     pathname: `/${tx.data[0].inputResult}`,
+                    query: {
+                      lang: language,
+                    },
                   });
                 } else {
                   setCheck(true);
                 }
               }}
-              title={languageDoc[language]["SearchbyProductId"]}
+              title={
+                !language
+                  ? languageDoc["FR"]["SearchbyProductId"]
+                  : languageDoc[language]["SearchbyProductId"]
+              }
             />
           ) : (
             <div>
@@ -81,8 +92,11 @@ export default function Search({ language }) {
                 }}
               >
                 <BannerStrip
-                  onCloseBtnClick={function noRefCheck() {}}
-                  text={languageDoc[language]["PleaseentervalidproductId"]}
+                  text={
+                    !language
+                      ? languageDoc["FR"]["PleaseentervalidproductId"]
+                      : languageDoc[language]["PleaseentervalidproductId"]
+                  }
                   type="error"
                 />
               </div>
@@ -91,11 +105,14 @@ export default function Search({ language }) {
                   buttonConfig={{
                     onClick: function noRefCheck() {},
                     theme: "primary",
+                    text: languageDoc[language ? language : "FR"]["Submit"],
                   }}
                   data={[
                     {
                       inputWidth: "100%",
-                      name: languageDoc[language]["EnteryourproductId"],
+                      name: !language
+                        ? languageDoc["FR"]["EnteryourproductId"]
+                        : languageDoc[language]["EnteryourproductId"],
                       type: "text",
                       value: "",
                       validation: {
@@ -109,13 +126,20 @@ export default function Search({ language }) {
                       setCheck(false);
                       router.push({
                         pathname: "/productPage",
-                        query: { productId: tx.data[0].inputResult },
+                        query: {
+                          productId: tx.data[0].inputResult,
+                          lang: language,
+                        },
                       });
                     } else {
                       setCheck(true);
                     }
                   }}
-                  title={languageDoc[language]["SearchbyProductId"]}
+                  title={
+                    !language
+                      ? languageDoc["FR"]["SearchbyProductId"]
+                      : languageDoc[language]["SearchbyProductId"]
+                  }
                 />
               </div>
             </div>
@@ -132,7 +156,11 @@ export default function Search({ language }) {
             >
               <BannerStrip
                 onCloseBtnClick={function noRefCheck() {}}
-                text={languageDoc[language]["PleaseConnectWallet"]}
+                text={
+                  !language
+                    ? languageDoc["FR"]["PleaseConnectWallet"]
+                    : languageDoc[language]["PleaseConnectWallet"]
+                }
                 type="error"
               />
             </div>

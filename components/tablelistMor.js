@@ -88,7 +88,7 @@ function TableListMor({ language }) {
           tokenURIResponse[0].inputResult,
           <Button
             color="red"
-            text={languageDoc[language]["ShowQrCode"]}
+            text={languageDoc[language ? language : "FR"]["ShowQrCode"]}
             onClick={async function generateQRcode() {
               try {
                 // console.log(await QRCode.toDataURL(requestURL));
@@ -104,7 +104,7 @@ function TableListMor({ language }) {
           />,
           <Button
             color="red"
-            text={languageDoc[language]["DownloadQRCode"]}
+            text={languageDoc[language ? language : "FR"]["DownloadQRCode"]}
             onClick={async function generateQRcode() {
               try {
                 const a = document.createElement("a");
@@ -157,7 +157,7 @@ function TableListMor({ language }) {
         noPagination
         header={[
           "",
-          <span>{languageDoc[language]["ProductId"]}</span>,
+          <span>{languageDoc[language ? language : "FR"]["ProductId"]}</span>,
           <span>{column}</span>,
           "",
         ]}

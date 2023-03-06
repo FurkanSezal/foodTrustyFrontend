@@ -7,13 +7,13 @@ import { languageDoc } from "../constants/languageDoc";
 import FoodTrustyJPG from "../public/FoodTrustyJPG.jpg";
 import { useRouter } from "next/router";
 
-export default function Header({ setLanguage, lang }) {
-  const [language, setLanguagee] = useState("FR");
-
+export default function Header({ setLanguage }) {
   const router = useRouter();
+  const { lang } = router.query;
+  const [language, setLanguagee] = useState(lang);
 
   const handleClick = () => {
-    router.push("/");
+    router.push(`/?lang=${language}`);
   };
 
   const handleLanguageChange = (event) => {
@@ -41,17 +41,19 @@ export default function Header({ setLanguage, lang }) {
         <div className="ml-auto py-2 px-4"></div>
         <ul className="flex flex-row">
           <li className="mr-4 p-6">
-            <Link href="/">{languageDoc[language]["Home"]}</Link>
+            <Link href={`/?lang=${language}`}>
+              {languageDoc[language ? language : "FR"]["Home"]}
+            </Link>
           </li>
           <li className="mr-4 p-6">
             <Link href={`/register?lang=${language}`}>
-              {languageDoc[language]["AddProduct"]}
+              {languageDoc[language ? language : "FR"]["AddProduct"]}
             </Link>
           </li>
         </ul>
         <div className="px-4 py-6">
           <Checkbox
-            checked={lang === "EN" ? true : false}
+            checked={language === "EN" ? true : false}
             id="language-switch"
             label="FR/EN"
             layout="switch"

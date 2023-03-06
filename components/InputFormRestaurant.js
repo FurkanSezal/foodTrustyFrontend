@@ -5,8 +5,9 @@ import trustyContactAbi from "../constants/foodTrusty.json";
 import axios from "axios";
 import TabModal from "../components/TabModal";
 import { useEffect, useState } from "react";
+import { languageDoc } from "../constants/languageDoc";
 
-function InputFormRestaurant() {
+function InputFormRestaurant({ language }) {
   const { runContractFunction } = useWeb3Contract();
   const dispatch = useNotification();
   const { chainId } = useMoralis();
@@ -16,7 +17,7 @@ function InputFormRestaurant() {
   const [defaultData, setDefaultData] = useState([
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Nameofmeal"],
+      name: languageDoc[language ? language : "FR"]["Nameofmeal"],
       type: "text",
       validation: {
         required: true,
@@ -25,7 +26,7 @@ function InputFormRestaurant() {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Serialnumber"],
+      name: languageDoc[language ? language : "FR"]["Serialnumber"],
       type: "tel",
       validation: {
         required: true,
@@ -34,7 +35,7 @@ function InputFormRestaurant() {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["idoflot"],
+      name: languageDoc[language ? language : "FR"]["idoflot"],
       type: "text",
       validation: {
         required: true,
@@ -43,7 +44,7 @@ function InputFormRestaurant() {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["idofrestaurant"],
+      name: languageDoc[language ? language : "FR"]["idofrestaurant"],
       type: "text",
       validation: {
         required: true,
@@ -52,103 +53,109 @@ function InputFormRestaurant() {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Nameofrestaurant"],
+      name: languageDoc[language ? language : "FR"]["Nameofrestaurant"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Corporateidofrestaurant"],
+      name: languageDoc[language ? language : "FR"]["Corporateidofrestaurant"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Addressofrestaurant"],
+      name: languageDoc[language ? language : "FR"]["Addressofrestaurant"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Typeofrestaurant"],
+      name: languageDoc[language ? language : "FR"]["Typeofrestaurant"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Zipcodeofrestaurant"],
+      name: languageDoc[language ? language : "FR"]["Zipcodeofrestaurant"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Enddate"],
+      name: languageDoc[language ? language : "FR"]["Enddate"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Cookingdate"],
+      name: languageDoc[language ? language : "FR"]["Cookingdate"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Nutritionalvalue"],
+      name: languageDoc[language ? language : "FR"]["Nutritionalvalue"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Ingredients"],
+      name: languageDoc[language ? language : "FR"]["Ingredients"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Purchasedateofingredient1"],
+      name: languageDoc[language ? language : "FR"][
+        "Purchasedateofingredient1"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Supplierofingredient1"],
+      name: languageDoc[language ? language : "FR"]["Supplierofingredient1"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Purchasedateofingredient2"],
+      name: languageDoc[language ? language : "FR"][
+        "Purchasedateofingredient2"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Supplierofingredient2"],
+      name: languageDoc[language ? language : "FR"]["Supplierofingredient2"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Storagetemperature"],
+      name: languageDoc[language ? language : "FR"]["Storagetemperature"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Carbonfootprint"],
+      name: languageDoc[language ? language : "FR"]["Carbonfootprint"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Lastdateofhousekeepingofplaceandfreezer"],
+      name: languageDoc[language ? language : "FR"][
+        "Lastdateofhousekeepingofplaceandfreezer"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language][
+      name: languageDoc[language ? language : "FR"][
         "Howmanytimeemployeeswashtheirhandsdayofcooking"
       ],
       type: "text",
@@ -157,13 +164,13 @@ function InputFormRestaurant() {
 
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Image"],
+      name: languageDoc[language ? language : "FR"]["Image"],
       type: "file",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["ProductDescription"],
+      name: languageDoc[language ? language : "FR"]["ProductDescription"],
       type: "textarea",
       value: "",
     },
@@ -249,8 +256,8 @@ function InputFormRestaurant() {
       await tx.wait(1);
       dispatch({
         type: "Success",
-        message: languageDoc[language]["ProductAdding"],
-        title: languageDoc[language]["ProductAdded"],
+        message: languageDoc[language ? language : "FR"]["ProductAdding"],
+        title: languageDoc[language ? language : "FR"]["ProductAdded"],
         position: "topR",
       });
     }
@@ -275,13 +282,13 @@ function InputFormRestaurant() {
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Button
               size="regular"
-              text={languageDoc[language]["addnewproperty"]}
+              text={languageDoc[language ? language : "FR"]["addnewproperty"]}
               theme="secondary"
               onClick={showModel}
             />
             <Button
               size="regular"
-              text={languageDoc[language]["AddProduct"]}
+              text={languageDoc[language ? language : "FR"]["AddProduct"]}
               theme="primary"
               type="submit"
             />
@@ -299,6 +306,7 @@ function InputFormRestaurant() {
         isVisible={showModal}
         onClose={hideModel}
         onAddProperty={handleAddTab}
+        language={language}
       ></TabModal>
     </div>
   );

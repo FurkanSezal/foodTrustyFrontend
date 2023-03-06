@@ -5,8 +5,9 @@ import trustyContactAbi from "../constants/foodTrusty.json";
 import axios from "axios";
 import TabModal from "../components/TabModal";
 import { useEffect, useState } from "react";
+import { languageDoc } from "../constants/languageDoc";
 
-function InputFormSlaughter() {
+function InputFormSlaughter({ language }) {
   const { runContractFunction } = useWeb3Contract();
   const dispatch = useNotification();
   const { chainId } = useMoralis();
@@ -16,7 +17,7 @@ function InputFormSlaughter() {
   const [defaultData, setDefaultData] = useState([
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Nameofslaughter"],
+      name: languageDoc[language ? language : "FR"]["Nameofslaughter"],
       type: "text",
       validation: {
         required: true,
@@ -25,7 +26,7 @@ function InputFormSlaughter() {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Serialnumber"],
+      name: languageDoc[language ? language : "FR"]["Serialnumber"],
       type: "tel",
       validation: {
         required: true,
@@ -34,7 +35,7 @@ function InputFormSlaughter() {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["idofslaughter"],
+      name: languageDoc[language ? language : "FR"]["idofslaughter"],
       validation: {
         required: true,
       },
@@ -43,127 +44,143 @@ function InputFormSlaughter() {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Corporateidofslaughter"],
+      name: languageDoc[language ? language : "FR"]["Corporateidofslaughter"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["idoflot"],
+      name: languageDoc[language ? language : "FR"]["idoflot"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Dateofunloadingofanimals"],
+      name: languageDoc[language ? language : "FR"]["Dateofunloadingofanimals"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Dateofinspection"],
+      name: languageDoc[language ? language : "FR"]["Dateofinspection"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Dateofcheckingofveterinary"],
+      name: languageDoc[language ? language : "FR"][
+        "Dateofcheckingofveterinary"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Resultofcheckingofveterinary"],
+      name: languageDoc[language ? language : "FR"][
+        "Resultofcheckingofveterinary"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Dateandtimeofpreparationofslaughtering"],
+      name: languageDoc[language ? language : "FR"][
+        "Dateandtimeofpreparationofslaughtering"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Dateandtimeofslump"],
+      name: languageDoc[language ? language : "FR"]["Dateandtimeofslump"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Dateandtimeofstunning"],
+      name: languageDoc[language ? language : "FR"]["Dateandtimeofstunning"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Dateandtimeofstripping"],
+      name: languageDoc[language ? language : "FR"]["Dateandtimeofstripping"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Dateandtimeofbleening"],
+      name: languageDoc[language ? language : "FR"]["Dateandtimeofbleening"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Dateandtimeofcheckingpostmortem"],
+      name: languageDoc[language ? language : "FR"][
+        "Dateandtimeofcheckingpostmortem"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Resultofcheckingpostmortem"],
+      name: languageDoc[language ? language : "FR"][
+        "Resultofcheckingpostmortem"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Markingclassificationandweighed"],
+      name: languageDoc[language ? language : "FR"][
+        "Markingclassificationandweighed"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Dateandtimeofrefirgeration"],
+      name: languageDoc[language ? language : "FR"][
+        "Dateandtimeofrefirgeration"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Placeofpackaging"],
+      name: languageDoc[language ? language : "FR"]["Placeofpackaging"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Modeoftransport"],
+      name: languageDoc[language ? language : "FR"]["Modeoftransport"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Storagetemperature"],
+      name: languageDoc[language ? language : "FR"]["Storagetemperature"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Placeofstorage"],
+      name: languageDoc[language ? language : "FR"]["Placeofstorage"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Lastdateofhousekeepingoffreezer"],
+      name: languageDoc[language ? language : "FR"][
+        "Lastdateofhousekeepingoffreezer"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language][
+      name: languageDoc[language ? language : "FR"][
         "Howmanytimeemployeeswashtheirhandsdayofcooking"
       ],
       type: "text",
@@ -171,26 +188,26 @@ function InputFormSlaughter() {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Carbonfootprint"],
+      name: languageDoc[language ? language : "FR"]["Carbonfootprint"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["HallalKosherunreligious"],
+      name: languageDoc[language ? language : "FR"]["HallalKosherunreligious"],
       type: "text",
       value: "",
     },
 
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Image"],
+      name: languageDoc[language ? language : "FR"]["Image"],
       type: "file",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["ProductDescription"],
+      name: languageDoc[language ? language : "FR"]["ProductDescription"],
       type: "textarea",
       value: "",
     },
@@ -276,8 +293,8 @@ function InputFormSlaughter() {
       await tx.wait(1);
       dispatch({
         type: "Success",
-        message: languageDoc[language]["ProductAdding"],
-        title: languageDoc[language]["ProductAdded"],
+        message: languageDoc[language ? language : "FR"]["ProductAdding"],
+        title: languageDoc[language ? language : "FR"]["ProductAdded"],
         position: "topR",
       });
     }
@@ -303,13 +320,13 @@ function InputFormSlaughter() {
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Button
               size="regular"
-              text={languageDoc[language]["addnewproperty"]}
+              text={languageDoc[language ? language : "FR"]["addnewproperty"]}
               theme="secondary"
               onClick={showModel}
             />
             <Button
               size="regular"
-              text={languageDoc[language]["AddProduct"]}
+              text={languageDoc[language ? language : "FR"]["AddProduct"]}
               theme="primary"
               type="submit"
             />
@@ -321,12 +338,13 @@ function InputFormSlaughter() {
         }}
         data={defaultData}
         onSubmit={handleSubmit}
-        title={languageDoc[language]["AddProduct"]}
+        title={languageDoc[language ? language : "FR"]["AddProduct"]}
       />
       <TabModal
         isVisible={showModal}
         onClose={hideModel}
         onAddProperty={handleAddTab}
+        language={language}
       ></TabModal>
     </div>
   );

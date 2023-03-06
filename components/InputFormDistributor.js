@@ -17,7 +17,7 @@ function InputFormDistributor({ language }) {
   const [defaultData, setDefaultData] = useState([
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Nameofmeal"],
+      name: languageDoc[language ? language : "FR"]["Nameofmeal"],
       type: "text",
       validation: {
         required: true,
@@ -26,7 +26,7 @@ function InputFormDistributor({ language }) {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Serialnumber"],
+      name: languageDoc[language ? language : "FR"]["Serialnumber"],
       type: "tel",
       validation: {
         required: true,
@@ -35,7 +35,7 @@ function InputFormDistributor({ language }) {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["idoflot"],
+      name: languageDoc[language ? language : "FR"]["idoflot"],
       type: "text",
       validation: {
         required: true,
@@ -44,7 +44,7 @@ function InputFormDistributor({ language }) {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["idofwholesaler"],
+      name: languageDoc[language ? language : "FR"]["idofwholesaler"],
       type: "text",
       validation: {
         required: true,
@@ -53,86 +53,88 @@ function InputFormDistributor({ language }) {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Nameofwholesaler"],
+      name: languageDoc[language ? language : "FR"]["Nameofwholesaler"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Corporateidofwholesaler"],
+      name: languageDoc[language ? language : "FR"]["Corporateidofwholesaler"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Addressofwholesaler"],
+      name: languageDoc[language ? language : "FR"]["Addressofwholesaler"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Typeofwholesaler"],
+      name: languageDoc[language ? language : "FR"]["Typeofwholesaler"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Zipcodeofwholesaler"],
+      name: languageDoc[language ? language : "FR"]["Zipcodeofwholesaler"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Enddate"],
+      name: languageDoc[language ? language : "FR"]["Enddate"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Purchasedate"],
+      name: languageDoc[language ? language : "FR"]["Purchasedate"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Dateofsale"],
+      name: languageDoc[language ? language : "FR"]["Dateofsale"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Cookingdate"],
+      name: languageDoc[language ? language : "FR"]["Cookingdate"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Nutritionalvalue"],
+      name: languageDoc[language ? language : "FR"]["Nutritionalvalue"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Ingredients"],
+      name: languageDoc[language ? language : "FR"]["Ingredients"],
       type: "text",
       value: "",
     },
 
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Storagetemperature"],
+      name: languageDoc[language ? language : "FR"]["Storagetemperature"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Lastdateofhousekeepingoffreezer"],
+      name: languageDoc[language ? language : "FR"][
+        "Lastdateofhousekeepingoffreezer"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language][
+      name: languageDoc[language ? language : "FR"][
         "Howmanytimeemployeeswashtheirhandsdayofcooking"
       ],
       type: "text",
@@ -140,20 +142,20 @@ function InputFormDistributor({ language }) {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Carbonfootprint"],
+      name: languageDoc[language ? language : "FR"]["Carbonfootprint"],
       type: "text",
       value: "",
     },
 
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Image"],
+      name: languageDoc[language ? language : "FR"]["Image"],
       type: "file",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["ProductDescription"],
+      name: languageDoc[language ? language : "FR"]["ProductDescription"],
       type: "textarea",
       value: "",
     },
@@ -254,8 +256,8 @@ function InputFormDistributor({ language }) {
       await tx.wait(1);
       dispatch({
         type: "Success",
-        message: languageDoc[language]["ProductAdding"],
-        title: languageDoc[language]["ProductAdded"],
+        message: languageDoc[language ? language : "FR"]["ProductAdding"],
+        title: languageDoc[language ? language : "FR"]["ProductAdded"],
         position: "topR",
       });
     }
@@ -268,13 +270,13 @@ function InputFormDistributor({ language }) {
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Button
               size="regular"
-              text={languageDoc[language]["addnewproperty"]}
+              text={languageDoc[language ? language : "FR"]["addnewproperty"]}
               theme="secondary"
               onClick={showModel}
             />
             <Button
               size="regular"
-              text={languageDoc[language]["AddProduct"]}
+              text={languageDoc[language ? language : "FR"]["AddProduct"]}
               theme="primary"
               type="submit"
             />
@@ -292,6 +294,7 @@ function InputFormDistributor({ language }) {
         isVisible={showModal}
         onClose={hideModel}
         onAddProperty={handleAddTab}
+        language={language}
       ></TabModal>
     </div>
   );

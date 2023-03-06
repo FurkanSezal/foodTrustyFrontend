@@ -24,9 +24,10 @@ export default function Home() {
   } else {
     foodTrustyContractAddress = networkMapping["31337"].foodTrusty[0];
   }
-  const [language, setLanguage] = useState("FR");
+
   const router = useRouter();
   const { lang } = router.query;
+  const [language, setLanguage] = useState(lang);
 
   const { runContractFunction: getManufacturer } = useWeb3Contract({
     abi: trustyContactAbi,
@@ -86,9 +87,6 @@ export default function Home() {
     if (await getWholesaler()) {
       setFormId(5);
     }
-    if (await getAdmin()) {
-      setFormId(6);
-    }
   }
 
   async function handleLanguage(language) {
@@ -118,28 +116,35 @@ export default function Home() {
               <div>
                 <BannerStrip
                   onCloseBtnClick={function noRefCheck() {}}
-                  text={languageDoc[language]["Youarenotregistered"]}
+                  text={
+                    !language
+                      ? languageDoc["FR"]["Youarenotregistered"]
+                      : languageDoc[language]["Youarenotregistered"]
+                  }
                   type="error"
                 />
               </div>
             ) : formId === 1 ? (
               <InputFormManufacturer language={language} />
             ) : formId === 2 ? (
-              <InputFormRestaurant />
+              <InputFormRestaurant language={language} />
             ) : formId === 3 ? (
-              <InputFormGlower />
+              <InputFormGlower language={language} />
             ) : formId === 4 ? (
-              <InputFormSlaughter />
+              <InputFormSlaughter language={language} />
             ) : formId === 5 ? (
-              <InputFormDistributor />
+              <InputFormDistributor language={language} />
             ) : (
               ""
             )
           ) : (
             <div>
               <BannerStrip
-                onCloseBtnClick={function noRefCheck() {}}
-                text={languageDoc[language]["PleaseswitchtoPolygonNetwork"]}
+                text={
+                  !language
+                    ? languageDoc["FR"]["PleaseswitchtoPolygonNetwork"]
+                    : languageDoc[language]["PleaseswitchtoPolygonNetwork"]
+                }
                 type="error"
               />
             </div>
@@ -147,8 +152,11 @@ export default function Home() {
         ) : (
           <div>
             <BannerStrip
-              onCloseBtnClick={function noRefCheck() {}}
-              text={languageDoc[language]["PleaseConnectWallet"]}
+              text={
+                !language
+                  ? languageDoc["FR"]["PleaseConnectWallet"]
+                  : languageDoc[language]["PleaseConnectWallet"]
+              }
               type="error"
             />
           </div>

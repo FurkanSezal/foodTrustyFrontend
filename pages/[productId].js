@@ -8,6 +8,7 @@ import networkMapping from "../constants/networkMapping.json";
 import trustyContactAbi from "../constants/foodTrusty.json";
 import { Information, BannerStrip } from "@web3uikit/core";
 import { useRouter } from "next/router";
+import { languageDoc } from "../constants/languageDoc";
 
 export default function Home() {
   const { isWeb3Enabled, account, chainId } = useMoralis();
@@ -18,6 +19,10 @@ export default function Home() {
   const [lastProductId, setLastProductId] = useState("");
   const [metadataobj, setmMetadataobj] = useState([]);
   const [flag, setflag] = useState(false);
+
+  const router = useRouter();
+  const { lang } = router.query;
+  const [language, setLanguage] = useState(lang);
 
   const { runContractFunction: getIpfsHashById } = useWeb3Contract();
 
@@ -119,6 +124,11 @@ export default function Home() {
       };
     }
   }
+
+  async function handleLanguage(language) {
+    // console.log(language);
+    setLanguage(language);
+  }
   useEffect(() => {
     if (isWeb3Enabled) {
       selectShowData();
@@ -126,13 +136,12 @@ export default function Home() {
     } else {
       <div>
         <BannerStrip
-          onCloseBtnClick={function noRefCheck() {}}
-          text="Please Connect a Wallet"
+          text={languageDoc[language ? language : "FR"]["PleaseConnectWallet"]}
           type="error"
         />
       </div>;
     }
-  }, [account]);
+  }, [account, language]);
 
   function showAllData() {
     if (metadataobj.length !== 0) {
@@ -161,15 +170,33 @@ export default function Home() {
         <div>
           {metadataobj.map((curr) => {
             if (
-              curr.inputName == "Name of meal" ||
-              curr.inputName == "Serial number" ||
-              curr.inputName == "id of lot" ||
-              curr.inputName == "Name of restaurant" ||
-              curr.inputName == "End date" ||
-              curr.inputName == "Cooking date" ||
-              curr.inputName == "Nutritional value" ||
-              curr.inputName == "Storage temperature" ||
-              curr.inputName == "Carbon footprint"
+              curr.inputName ==
+                languageDoc[language ? language : "FR"]["Nameofmeal"] ||
+              curr.inputName == languageDoc["FR"]["Nameofmeal"] ||
+              curr.inputName ==
+                languageDoc[language ? language : "FR"]["Serialnumber"] ||
+              curr.inputName == languageDoc["FR"]["Serialnumber"] ||
+              curr.inputName ==
+                languageDoc[language ? language : "FR"]["idoflot"] ||
+              curr.inputName == languageDoc["FR"]["idoflot"] ||
+              curr.inputName ==
+                languageDoc[language ? language : "FR"]["Nameofrestaurant"] ||
+              curr.inputName == languageDoc["FR"]["Nameofrestaurant"] ||
+              curr.inputName ==
+                languageDoc[language ? language : "FR"]["Enddate"] ||
+              curr.inputName == languageDoc["FR"]["Enddate"] ||
+              curr.inputName ==
+                languageDoc[language ? language : "FR"]["Cookingdate"] ||
+              curr.inputName == languageDoc["FR"]["Cookingdate"] ||
+              curr.inputName ==
+                languageDoc[language ? language : "FR"]["Nutritionalvalue"] ||
+              curr.inputName == languageDoc["FR"]["Nutritionalvalue"] ||
+              curr.inputName ==
+                languageDoc[language ? language : "FR"]["Storagetemperature"] ||
+              curr.inputName == languageDoc["FR"]["Storagetemperature"] ||
+              curr.inputName ==
+                languageDoc[language ? language : "FR"]["Carbonfootprint"] ||
+              curr.inputName == languageDoc["FR"]["Carbonfootprint"]
             ) {
               return (
                 <div>
@@ -193,7 +220,7 @@ export default function Home() {
         <meta name="description" content="foodTrusty" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      <Header setLanguage={handleLanguage} lang={lang} />
       <div>
         {isWeb3Enabled ? (
           <div>
@@ -201,7 +228,12 @@ export default function Home() {
               {lastProductId > productId ? (
                 <div>
                   <div className="px-2 border-b-2 flex flex-row">
-                    <Information information={productId} topic="Product Id" />
+                    <Information
+                      information={productId}
+                      topic={
+                        languageDoc[language ? language : "FR"]["ProductId"]
+                      }
+                    />
                   </div>
                   <div className="px-2">
                     <div>
@@ -222,8 +254,11 @@ export default function Home() {
               ) : (
                 <div>
                   <BannerStrip
-                    onCloseBtnClick={function noRefCheck() {}}
-                    text="Please enter a valid product Id"
+                    text={
+                      languageDoc[language ? language : "FR"][
+                        "PleaseentervalidproductId"
+                      ]
+                    }
                     type="error"
                   />
                 </div>
@@ -233,8 +268,9 @@ export default function Home() {
         ) : (
           <div>
             <BannerStrip
-              onCloseBtnClick={function noRefCheck() {}}
-              text="Please Connect a Wallet"
+              text={
+                languageDoc[language ? language : "FR"]["PleaseConnectWallet"]
+              }
               type="error"
             />
           </div>

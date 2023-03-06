@@ -103,8 +103,8 @@ export default function Home() {
         await tx.wait(1);
         dispatch({
           type: "Success",
-          message: "Restaurant Adding..",
-          title: "Restaurant Added",
+          message: languageDoc[language ? language : "FR"]["RestaurantAdding"],
+          title: languageDoc[language ? language : "FR"]["RestaurantAdded"],
           position: "topR",
         });
       }
@@ -129,8 +129,8 @@ export default function Home() {
         await tx.wait(1);
         dispatch({
           type: "Success",
-          message: "Grower Adding..",
-          title: "Grower Added",
+          message: languageDoc[language ? language : "FR"]["GrowerAdding"],
+          title: languageDoc[language ? language : "FR"]["GrowerAdded"],
           position: "topR",
         });
       }
@@ -155,8 +155,8 @@ export default function Home() {
         await tx.wait(1);
         dispatch({
           type: "Success",
-          message: "Slaughter Adding..",
-          title: "Slaughter Added",
+          message: languageDoc[language ? language : "FR"]["SlaughterAdding"],
+          title: languageDoc[language ? language : "FR"]["SlaughterAdded"],
           position: "topR",
         });
       }
@@ -181,8 +181,9 @@ export default function Home() {
         await tx.wait(1);
         dispatch({
           type: "Success",
-          message: "Manufacturer Adding..",
-          title: "Manufacturer Added",
+          message:
+            languageDoc[language ? language : "FR"]["ManufacturerAdding"],
+          title: languageDoc[language ? language : "FR"]["ManufacturerAdded"],
           position: "topR",
         });
       }
@@ -207,8 +208,8 @@ export default function Home() {
         await tx.wait(1);
         dispatch({
           type: "Success",
-          message: "Wholesaler Adding..",
-          title: "Wholesaler Added",
+          message: languageDoc[language ? language : "FR"]["WholesalerAdding"],
+          title: languageDoc[language ? language : "FR"]["WholesalerAdded"],
           position: "topR",
         });
       }
@@ -233,8 +234,8 @@ export default function Home() {
         await tx.wait(1);
         dispatch({
           type: "Success",
-          message: "Admin Adding..",
-          title: "Admin Added",
+          message: languageDoc[language ? language : "FR"]["AdminAdding"],
+          title: languageDoc[language ? language : "FR"]["AdminAdded"],
           position: "topR",
         });
       }
@@ -269,8 +270,9 @@ export default function Home() {
         await tx.wait(1);
         dispatch({
           type: "Success",
-          message: "Restaurant Removing..",
-          title: "Restaurant Removed",
+          message:
+            languageDoc[language ? language : "FR"]["RestaurantRemoving"],
+          title: languageDoc[language ? language : "FR"]["RestaurantRemoved"],
           position: "topR",
         });
       }
@@ -295,8 +297,8 @@ export default function Home() {
         await tx.wait(1);
         dispatch({
           type: "Success",
-          message: "Grower Removing..",
-          title: "Grower Removed",
+          message: languageDoc[language ? language : "FR"]["GrowerRemoving"],
+          title: languageDoc[language ? language : "FR"]["GrowerRemoved"],
           position: "topR",
         });
       }
@@ -321,8 +323,8 @@ export default function Home() {
         await tx.wait(1);
         dispatch({
           type: "Success",
-          message: "Slaughter Removing..",
-          title: "Slaughter Removed",
+          message: languageDoc[language ? language : "FR"]["SlaughterRemoving"],
+          title: languageDoc[language ? language : "FR"]["SlaughterRemoved"],
           position: "topR",
         });
       }
@@ -347,8 +349,9 @@ export default function Home() {
         await tx.wait(1);
         dispatch({
           type: "Success",
-          message: "Manufacturer Removing..",
-          title: "Manufacturer Removed",
+          message:
+            languageDoc[language ? language : "FR"]["ManufacturerRemoving"],
+          title: languageDoc[language ? language : "FR"]["ManufacturerRemoved"],
           position: "topR",
         });
       }
@@ -373,8 +376,9 @@ export default function Home() {
         await tx.wait(1);
         dispatch({
           type: "Success",
-          message: "Wholesaler Removing..",
-          title: "Wholesaler Removed",
+          message:
+            languageDoc[language ? language : "FR"]["WholesalerRemoving"],
+          title: languageDoc[language ? language : "FR"]["WholesalerRemoved"],
           position: "topR",
         });
       }
@@ -399,8 +403,8 @@ export default function Home() {
         await tx.wait(1);
         dispatch({
           type: "Success",
-          message: "Wholesaler Removing..",
-          title: "Wholesaler Removed",
+          message: languageDoc[language ? language : "FR"]["AdminRemoving"],
+          title: languageDoc[language ? language : "FR"]["AdminRemoved"],
           position: "topR",
         });
       }
@@ -453,11 +457,13 @@ export default function Home() {
                       <Radios
                         id="radios"
                         items={[
-                          languageDoc[language]["Restaurant"],
-                          languageDoc[language]["Grower"],
-                          languageDoc[language]["Slaughter"],
-                          languageDoc[language]["Manufacturer"],
-                          languageDoc[language]["Wholesaler"],
+                          languageDoc[language ? language : "FR"]["Restaurant"],
+                          languageDoc[language ? language : "FR"]["Grower"],
+                          languageDoc[language ? language : "FR"]["Slaughter"],
+                          languageDoc[language ? language : "FR"][
+                            "Manufacturer"
+                          ],
+                          languageDoc[language ? language : "FR"]["Wholesaler"],
                           "Admin",
                         ]}
                         onChange={(e) => {

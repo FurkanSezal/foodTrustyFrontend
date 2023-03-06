@@ -17,7 +17,7 @@ function InputFormManufacturer({ language }) {
   const [defaultData, setDefaultData] = useState([
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Nameofmeal"],
+      name: languageDoc[language ? language : "FR"]["Nameofmeal"],
       type: "text",
       validation: {
         required: true,
@@ -26,7 +26,7 @@ function InputFormManufacturer({ language }) {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Serialnumber"],
+      name: languageDoc[language ? language : "FR"]["Serialnumber"],
       type: "tel",
       validation: {
         required: true,
@@ -35,7 +35,7 @@ function InputFormManufacturer({ language }) {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["idoflot"],
+      name: languageDoc[language ? language : "FR"]["idoflot"],
       type: "text",
       validation: {
         required: true,
@@ -44,22 +44,13 @@ function InputFormManufacturer({ language }) {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["idofmanufacturer"],
+      name: languageDoc[language ? language : "FR"]["idofmanufacturer"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Nameofmanufacturer"],
-      type: "text",
-      validation: {
-        required: true,
-      },
-      value: "",
-    },
-    {
-      inputWidth: "100%",
-      name: languageDoc[language]["Corporateidofmanufacturer"],
+      name: languageDoc[language ? language : "FR"]["Nameofmanufacturer"],
       type: "text",
       validation: {
         required: true,
@@ -68,127 +59,156 @@ function InputFormManufacturer({ language }) {
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Addressofmanufacturer"],
+      name: languageDoc[language ? language : "FR"][
+        "Corporateidofmanufacturer"
+      ],
+      type: "text",
+      validation: {
+        required: true,
+      },
+      value: "",
+    },
+    {
+      inputWidth: "100%",
+      name: languageDoc[language ? language : "FR"]["Addressofmanufacturer"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Typeofmanufacturer"],
+      name: languageDoc[language ? language : "FR"]["Typeofmanufacturer"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Zipcodeofmanufacturer"],
+      name: languageDoc[language ? language : "FR"]["Zipcodeofmanufacturer"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Enddate"],
+      name: languageDoc[language ? language : "FR"]["Enddate"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Dateofpurchaseofrawmaterial"],
+      name: languageDoc[language ? language : "FR"][
+        "Dateofpurchaseofrawmaterial"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Dateofsale"],
+      name: languageDoc[language ? language : "FR"]["Dateofsale"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Nutritionalvalue"],
+      name: languageDoc[language ? language : "FR"]["Nutritionalvalue"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Ingredients"],
+      name: languageDoc[language ? language : "FR"]["Ingredients"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Storagetemperatureofmeal"],
+      name: languageDoc[language ? language : "FR"]["Storagetemperatureofmeal"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Ingredient1"],
+      name: languageDoc[language ? language : "FR"]["Ingredient1"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Purchasedateofingredient1"],
+      name: languageDoc[language ? language : "FR"][
+        "Purchasedateofingredient1"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Supplierofingredient1"],
+      name: languageDoc[language ? language : "FR"]["Supplierofingredient1"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Placeofstorageofingredient1"],
+      name: languageDoc[language ? language : "FR"][
+        "Placeofstorageofingredient1"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Storagetemperatureofingredient1"],
+      name: languageDoc[language ? language : "FR"][
+        "Storagetemperatureofingredient1"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Purchasedateofingredient2"],
+      name: languageDoc[language ? language : "FR"][
+        "Purchasedateofingredient2"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Supplierofingredient2"],
+      name: languageDoc[language ? language : "FR"]["Supplierofingredient2"],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Placeofstorageofingredient2"],
+      name: languageDoc[language ? language : "FR"][
+        "Placeofstorageofingredient2"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Storagetemperatureofingredient2"],
+      name: languageDoc[language ? language : "FR"][
+        "Storagetemperatureofingredient2"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Lastdateofhousekeepingofplaceandfreezer"],
+      name: languageDoc[language ? language : "FR"][
+        "Lastdateofhousekeepingofplaceandfreezer"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Lastdateofhousekeepingoffreezer"],
+      name: languageDoc[language ? language : "FR"][
+        "Lastdateofhousekeepingoffreezer"
+      ],
       type: "text",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language][
+      name: languageDoc[language ? language : "FR"][
         "Howmanytimeemployeeswashtheirhandsdayofcooking"
       ],
       type: "text",
@@ -197,20 +217,20 @@ function InputFormManufacturer({ language }) {
 
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Carbonfootprint"],
+      name: languageDoc[language ? language : "FR"]["Carbonfootprint"],
       type: "text",
       value: "",
     },
 
     {
       inputWidth: "100%",
-      name: languageDoc[language]["Image"],
+      name: languageDoc[language ? language : "FR"]["Image"],
       type: "file",
       value: "",
     },
     {
       inputWidth: "100%",
-      name: languageDoc[language]["ProductDescription"],
+      name: languageDoc[language ? language : "FR"]["ProductDescription"],
       type: "textarea",
       value: "",
     },
@@ -300,8 +320,8 @@ function InputFormManufacturer({ language }) {
       await tx.wait(1);
       dispatch({
         type: "Success",
-        message: languageDoc[language]["ProductAdding"],
-        title: languageDoc[language]["ProductAdded"],
+        message: languageDoc[language ? language : "FR"]["ProductAdding"],
+        title: languageDoc[language ? language : "FR"]["ProductAdded"],
         position: "topR",
       });
     }
@@ -326,13 +346,13 @@ function InputFormManufacturer({ language }) {
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Button
               size="regular"
-              text={languageDoc[language]["addnewproperty"]}
+              text={languageDoc[language ? language : "FR"]["addnewproperty"]}
               theme="secondary"
               onClick={showModel}
             />
             <Button
               size="regular"
-              text={languageDoc[language]["AddProduct"]}
+              text={languageDoc[language ? language : "FR"]["AddProduct"]}
               theme="primary"
               type="submit"
             />
@@ -344,12 +364,13 @@ function InputFormManufacturer({ language }) {
         }}
         data={defaultData}
         onSubmit={handleSubmit}
-        title={languageDoc[language]["AddProduct"]}
+        title={languageDoc[language ? language : "FR"]["AddProduct"]}
       />
       <TabModal
         isVisible={showModal}
         onClose={hideModel}
         onAddProperty={handleAddTab}
+        language={language}
       ></TabModal>
     </div>
   );

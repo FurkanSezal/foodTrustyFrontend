@@ -10,6 +10,7 @@ import React, { useEffect, useState } from "react";
 import Search from "../components/end-user-home-search";
 import { BannerStrip } from "@web3uikit/core";
 import { languageDoc } from "../constants/languageDoc";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const { chainId, account, isWeb3Enabled, web3 } = useMoralis();
@@ -23,7 +24,10 @@ export default function Home() {
   }
 
   const [flag, setflag] = useState(false);
-  const [language, setLanguage] = useState("FR");
+  const router = useRouter();
+  const { lang } = router.query;
+
+  const [language, setLanguage] = useState(lang);
 
   const { runContractFunction: getManufacturer } = useWeb3Contract({
     abi: trustyContactAbi,
@@ -90,6 +94,10 @@ export default function Home() {
     }
   }, [account, isWeb3Enabled, language]);
 
+  useEffect(() => {
+    lang ? lang : setLanguage("FR");
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -115,8 +123,11 @@ export default function Home() {
             ) : (
               <div>
                 <BannerStrip
-                  onCloseBtnClick={function noRefCheck() {}}
-                  text={languageDoc[language]["PleaseswitchtoPolygonNetwork"]}
+                  text={
+                    !language
+                      ? languageDoc["FR"]["PleaseswitchtoPolygonNetwork"]
+                      : languageDoc[language]["PleaseswitchtoPolygonNetwork"]
+                  }
                   type="error"
                 />
               </div>
@@ -125,8 +136,11 @@ export default function Home() {
         ) : (
           <div>
             <BannerStrip
-              onCloseBtnClick={function noRefCheck() {}}
-              text={languageDoc[language]["PleaseConnectWallet"]}
+              text={
+                !language
+                  ? languageDoc["FR"]["PleaseConnectWallet"]
+                  : languageDoc[language]["PleaseConnectWallet"]
+              }
               type="error"
             />
           </div>
