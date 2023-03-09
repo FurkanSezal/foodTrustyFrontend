@@ -23,7 +23,7 @@ export default function Home() {
   const router = useRouter();
   const { lang } = router.query;
   const [language, setLanguage] = useState(lang);
-
+  console.log(productId);
   const { runContractFunction: getIpfsHashById } = useWeb3Contract();
 
   const { runContractFunction: getManufacturer } = useWeb3Contract({
@@ -92,31 +92,33 @@ export default function Home() {
   }
   async function showData() {
     try {
-      const hash = await getIpfsHashById({
-        params: {
-          abi: trustyContactAbi,
-          contractAddress: foodTrustyContractAddress,
-          functionName: "getIpfsHashById",
-          params: { _productId: productId },
-        },
-      });
-      //  console.log(hash);
-      const requestURL = "https://gateway.pinata.cloud/ipfs/" + hash;
+      if (productId) {
+        const hash = await getIpfsHashById({
+          params: {
+            abi: trustyContactAbi,
+            contractAddress: foodTrustyContractAddress,
+            functionName: "getIpfsHashById",
+            params: { _productId: productId },
+          },
+        });
+        //  console.log(hash);
+        const requestURL = "https://gateway.pinata.cloud/ipfs/" + hash;
 
-      const tokenURIResponse = await (await fetch(requestURL)).json();
-      //  console.log(`tokenURIResponse:${JSON.stringify(tokenURIResponse)}`);
-      //  console.log(`tokenURIResponse:${typeof tokenURIResponse}`);
+        const tokenURIResponse = await (await fetch(requestURL)).json();
+        //  console.log(`tokenURIResponse:${JSON.stringify(tokenURIResponse)}`);
+        //  console.log(`tokenURIResponse:${typeof tokenURIResponse}`);
 
-      setmMetadataobj(tokenURIResponse);
-      const findImageUrl = tokenURIResponse.find((curr) => {
-        return curr.inputName == "Image";
-      });
-      const imageURL =
-        "https://gateway.pinata.cloud/ipfs/" + findImageUrl.inputResult;
-      // console.log(imageURL);
-      setImageURI(imageURL);
+        setmMetadataobj(tokenURIResponse);
+        const findImageUrl = tokenURIResponse.find((curr) => {
+          return curr.inputName == "Image";
+        });
+        const imageURL =
+          "https://gateway.pinata.cloud/ipfs/" + findImageUrl.inputResult;
+        // console.log(imageURL);
+        setImageURI(imageURL);
 
-      return tokenURIResponse;
+        return tokenURIResponse;
+      }
     } catch {
       (e) => {
         console.log("error");
@@ -225,7 +227,7 @@ export default function Home() {
         {isWeb3Enabled ? (
           <div>
             <div>
-              {lastProductId > productId ? (
+              {parseInt(lastProductId) > productId ? (
                 <div>
                   <div className="px-2 border-b-2 flex flex-row">
                     <Information
