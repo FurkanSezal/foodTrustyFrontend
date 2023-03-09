@@ -19,6 +19,8 @@ const languageDoc = {
     ProductAdded: "Product Added",
     Youarenotauthorizedtoseethispage: "You are not authorized to see this page",
     Submit: "Submit",
+    Duetonetworkactivityaddingcouldtakes34mins:
+      "Due to network activity adding could takes 3-4 mins",
     ////////////////////////////////////////////////////////////////////////////
     /// Manufacturer Form
     Nameofmeal: "Name of meal",
@@ -183,12 +185,14 @@ const languageDoc = {
       "Veuillez saisir un identifiant de produit valide",
     PleaseswitchtoPolygonNetwork: "Veuillez passer au réseau Polygon",
     Youarenotregistered: "Vous n'êtes pas enregistré!",
-    addnewproperty: "Ajouter Une Nouvelle Propriété",
+    addnewproperty: "Ajouter Un Nouveau Champs",
     ProductAdding: "Ajout de produit..",
     ProductAdded: "Produit ajouté",
     Youarenotauthorizedtoseethispage:
       "Vous n'êtes pas autorisé à voir cette page",
     Submit: "Soumettre",
+    Duetonetworkactivityaddingcouldtakes34mins:
+      "Du fait du réseau l'ajout du plat pourrait prendre 3-4 minutes",
     ////////////////////////////////////////////////////////////////////////////
     Nameofmeal: "Nom du plat",
     Serialnumber: "Identifiant du plat",

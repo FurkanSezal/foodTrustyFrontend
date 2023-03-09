@@ -33,11 +33,18 @@ export default function Header({ setLanguage }) {
   return (
     <nav>
       <div className="border-b-2 flex flex-row">
-        <div className="px-10 flex items-center">
+        <div className="px-4 py-6 sm:px-10 sm:flex sm:items-center">
           <div onClick={handleClick} style={{ cursor: "pointer" }}>
-            <Image src={FoodTrustyJPG} alt="" width={80} height={80} />
+            <div className="w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40">
+              <Image
+                src={FoodTrustyJPG}
+                alt=""
+                className="w-full h-full object-contain"
+              />
+            </div>
           </div>
         </div>
+
         <div className="ml-auto py-2 px-4"></div>
         <ul className="flex flex-row">
           <li className="mr-4 p-6">

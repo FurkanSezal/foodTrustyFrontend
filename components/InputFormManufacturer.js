@@ -324,6 +324,14 @@ function InputFormManufacturer({ language }) {
         title: languageDoc[language ? language : "FR"]["ProductAdded"],
         position: "topR",
       });
+      dispatch({
+        type: "Success",
+        title:
+          languageDoc[language ? language : "FR"][
+            "Duetonetworkactivityaddingcouldtakes34mins"
+          ],
+        position: "topR",
+      });
     }
   };
 

@@ -77,7 +77,7 @@ export default function Home() {
   });
 
   async function handleAddRole(e) {
-    console.log(e);
+    // console.log(e);
     const address = e.data[0].inputResult;
     if (role == 0) {
       /*  console.log("role");
